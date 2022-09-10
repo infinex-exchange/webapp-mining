@@ -104,7 +104,7 @@
         </div>
         
         <?php include('../../templates/modals.php'); ?>
-        <script src="/mining/index.js?<?php echo filemtime(__DIR__.'/index.js'); ?>"></script>
+        <script src="/mining/js/plans.js?<?php echo filemtime(__DIR__.'/js/plans.js'); ?>"></script>
         
         <!-- Footer -->
         <?php include('../../templates/footer.html'); ?>
