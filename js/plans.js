@@ -18,5 +18,28 @@ function renderPlan(data) {
 
 $(document).ready(function() {
     window.renderingStagesTarget = 1;
-    $(document).trigger('renderingStage');
+    
+    $.ajax({
+        url: config.apiUrl + '/mining/plans',
+        type: 'POST',
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $.each(data.plans, function(k, v) {
+                $('#plans-data').append(renderPlan(v));
+            });
+            
+            $(document).trigger('renderingStage');
+        }
+        
+        else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+    });
 });
