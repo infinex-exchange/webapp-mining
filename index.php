@@ -26,60 +26,29 @@
             <div class="row m-0 px-4 py-5 index-section gy-4">
                 <div class="col-12 col-md-6 col-lg-4">
                     <h3>
-                        <i class="fa-solid fa-check-circle"></i>
+                        <i class="fa-regular fa-money-bill-1"></i>
                         No additional costs
                     </h3>
                     <span class="secondary">
-	                    The price of the mining plan includes all maintenance fees and electricity costs. No additional fees are charged from the mined amount. You get exactly as much crypto as you could mine on your own hardware with the same parameters.
+	                    The price of the mining plan includes all maintenance fees and electricity costs. No additional fees are charged from the mined amount. You get exactly as much crypto as you could mine on your own hardware with the same power.
+                    </span>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h3>
+                        <i class="fa-solid fa-microchip"></i>
+                        Maintenance free
+                    </h3>
+                    <span class="secondary">
+                        You don't need to have any technical knowledge to start. Just buy a mining plan and watch your profits. Our specialists take care of the proper configuration and maintenance of the mining equipment 24 hours a day.
                     </span>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
-                        Flexible security options
+                        No heat and no noise
                     </h3>
                     <span class="secondary">
-                    Are you annoyed by SMS or 2FA codes every time you open exchange app?
-                    In Vayamos, you can use it or you can turn it off.
-                    We don't force anything.
-                    </span>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <h3>
-                        <i class="fa-solid fa-check-circle"></i>
-                        Quick & easy listing
-                    </h3>
-                    <span class="secondary">
-                    Vayamos helps make the addition of new crypto projects as simple as possible.
-                    If there are no technical barriers, it can be listed for free.
-                    </span>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <h3>
-                        <i class="fa-solid fa-check-circle"></i>
-                        < 0.10%
-                    </h3>
-                    <span class="secondary">
-                    Competitive transaction fees with the possibility of obtaining discounts.
-                    </span>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <h3>
-                        <i class="fa-solid fa-check-circle"></i>
-                        Instant deposits and withdrawals
-                    </h3>
-                    <span class="secondary">
-                    When you request a withdrawal it will be executed on the blockchain
-                    within no more than 1 minute.
-                    </span>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <h3>
-                        <i class="fa-solid fa-check-circle"></i>
-                        Community support
-                    </h3>
-                    <span class="secondary">
-                    Get help and discuss anytime on our Discord server
+                        If you don't have the location to host mining hardware yourself, cloud mining is a perfect choice!
                     </span>
                 </div>
             </div>
