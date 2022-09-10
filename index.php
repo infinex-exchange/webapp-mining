@@ -23,7 +23,7 @@
                 </div>
             </div>
             
-            <div class="row m-0 px-4 py-5 index-section gy-4">
+            <div class="row m-0 px-4 pb-5 index-section gy-4">
                 <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-regular fa-money-bill-1"></i>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <h3>
-                        <i class="fa-solid fa-check-circle"></i>
+                        <i class="fa-solid fa-temperature-three-quarters"></i>
                         No heat and no noise
                     </h3>
                     <span class="secondary">
