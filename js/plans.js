@@ -2,14 +2,15 @@ function renderPlan(data) {
     return `
 	    <div class="col-12 plan-item">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
-	            <div class="row py-2 text-center">
-	                <h3>${data.name}</h3>
-	            </div>
-	            <div class="row py-2 secondary">
-	                <div class="col-3 my-auto"><h5>Name</h5></div>
-	                <div class="col-4 my-auto text-end"><h5>Last price</h5></div>
-	                <div class="col-2 my-auto text-end"><h5>24h change</h5></div>
-	                <div class="col-3 my-auto text-end"><h5>24h volume</h5></div>
+	            <div class="row">
+	                <div class="col-12 py-2 text-center">
+		                <h3>${data.name}</h3>
+		            </div>
+		            <div class="col-12">
+                        <input type="range" class="form-range" min="0" max="0" step="1" value="0">
+		            </div>
+		            <div class="col-4">
+		            </div>
 	            </div>
 	        </div>
 	    </div>
