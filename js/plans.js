@@ -10,8 +10,8 @@ function renderPlan(planid, data) {
         `;
     });
     
-    return `
-	    <div class="col-12 plan-item">
+    $('#plans-data').append(`
+	    <div class="col-12 plan-item" data-planid="${planid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
 	                <div class="col-12 py-2">
@@ -38,12 +38,54 @@ function renderPlan(planid, data) {
                                     Investment forecast
                                 </h5>
                             </div>
+                            <div class="forecast-chart"></div>
                         </div>
 		            </div>
 	            </div>
 	        </div>
 	    </div>
-	`;
+	`);
+    
+    
+    var options = {
+        series: [
+            {
+                name: 'Peter',
+                data: [5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9]
+            },
+            {
+                name: 'Johnny',
+                data: [10, 15, null, 12, null, 10, 12, 15, null, null, 12, null, 14, null, null, null]
+            },
+            {
+                name: 'David',
+                data: [null, null, null, null, 3, 4, 1, 3, 4,  6,  7,  9, 5, null, null, null]
+            }
+        ],
+        chart: {
+            height: 350,
+            type: 'line',
+            zoom: {
+                enabled: false
+            },
+            animations: {
+                enabled: false
+            }
+        },
+        stroke: {
+            width: [5,5,4],
+            curve: 'straight'
+        },
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        title: {
+            text: 'Missing data (null values)'
+        },
+        xaxis: {
+        },
+    };
+
+    var chart = new ApexCharts($('.plan-item[data-planid="' + planid + '"] > .forecast-chart'), options);
+    chart.render();
 }
 
 $(document).ready(function() {
@@ -59,7 +101,7 @@ $(document).ready(function() {
     .done(function (data) {
         if(data.success) {
             $.each(data.plans, function(k, v) {
-                $('#plans-data').append(renderPlan(k, v));
+                renderPlan(k, v);
             });
             
             $(document).trigger('renderingStage');

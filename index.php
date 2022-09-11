@@ -3,6 +3,7 @@
     <head>
         <?php include('../../templates/head.php'); ?>
         <?php include('../../imports/bignumber.html'); ?>
+        <?php include('../../imports/apexcharts.html'); ?>
         <title>Vayamos Mining</title>
     </head>
     <body class="body-background">
