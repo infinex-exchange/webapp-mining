@@ -1,5 +1,5 @@
 /* Crossed out price */
 
 .crossed-out {
-    background: linear-gradient(to left top, transparent 47%, var(--color-red) 49%, var(--color-red) 50%, transparent 52%);
+    background: linear-gradient(to left top, transparent 47%, var(--color-red) 48%, var(--color-red) 51%, transparent 52%);
 }
