@@ -165,11 +165,11 @@ function renderPlan(planid, data) {
     };
     
     var item = $('.plan-item[data-planid="' + planid + '"]');
-    
-    item.find('.form-range').trigger('input');
 
     window.charts[planid] = new ApexCharts(item.find('.forecast-chart')[0], options);
     window.charts[planid].render();
+    
+    item.find('.form-range').trigger('input');
 }
 
 $(document).ready(function() {
