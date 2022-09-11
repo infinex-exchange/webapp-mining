@@ -20,7 +20,7 @@ function renderPlan(planid, data) {
 		                        ${icons}
                             </div>
                             <div class="col-auto my-auto me-auto">
-                                <h3>${name}</h3>
+                                <h3 class="m-0">${name}</h3>
                             </div>
                         </div>
 		            </div>
