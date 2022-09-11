@@ -68,6 +68,9 @@ function renderPlan(planid, data) {
             zoom: {
                 enabled: false
             },
+            toolbar: {
+                show: false
+            },
             animations: {
                 enabled: false
             }
