@@ -32,7 +32,7 @@
 	            <div class="col-12">
                     <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
-                            <i class="fa-solid fa-chart-down fa-2x"></i>
+                            <i class="fa-solid fa-chart-line fa-2x"></i>
                         </div>
                         <div class="px-2">
                             All forecasts are based on the current mining profitability of the offered coins and the average exchange rate for the last 7 days.
