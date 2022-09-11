@@ -23,7 +23,11 @@ function renderPlan(planid, data) {
 		                        ${header}
                             </div>
                             <div class="col-auto my-auto me-auto">
+<<<<<<< HEAD
                                 
+=======
+                                <h3>${name}</h3>
+>>>>>>> parent of fde0403 (Styling)
                             </div>
                         </div>
 		            </div>
