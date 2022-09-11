@@ -59,7 +59,7 @@ function renderPlan(planid, data) {
 		            </div>
 		            <div class="col-12 col-lg-6">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 pb-2">
                                 <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
                             </div>
                             <div class="col-5 my-auto text-center">
@@ -76,7 +76,7 @@ function renderPlan(planid, data) {
                             </div>
                             <div class="col-7">
                             </div>
-                            <div class="col-5">
+                            <div class="col-5 pt-3">
                                 <button class="btn btn-primary w-100" onClick="confirmBuyModal()">Start mining</button>
                             </div>
                         </div>
