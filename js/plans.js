@@ -9,7 +9,7 @@ function renderPlan(planid, data) {
         
         header += `
             <img width="24" height="24" src="${v.icon_url}">
-            <h3 class="d-inline m-0">${name}</h3>
+            <h3 class="d-inline m-0">${k}</h3>
         `;
     });
     
