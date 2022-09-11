@@ -18,7 +18,7 @@ function renderPlan(planid, data) {
 	                <div class="col-12 py-2 text-center">
                         <div class="row">
                             <div class="col-auto my-auto ms-auto">
-		                        ${icons}
+		                        ${header}
                             </div>
                             <div class="col-auto my-auto me-auto">
                                 
