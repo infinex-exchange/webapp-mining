@@ -45,7 +45,7 @@ function recalcPlan(planid) {
         for(var month = 0; month <= window.plans[planid].months; month++) {
             var date = new Date();
             
-            if(k == 'BPX') console.log(dailyMasterThis.times(month).times(30));
+            if(k == 'BPX') console.log(dailyMasterThis);
             
             seriesData.push({
                 x: new Date(date.setMonth(date.getMonth() + month)).getTime(),
