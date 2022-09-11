@@ -8,6 +8,7 @@ function recalcPlan(planid) {
     // Regular price
     var priceRegular = new BigNumber(window.plans[planid].unit_price);
     priceRegular = priceRegular.times(units).dp(window.billingPrec);
+    item.find('.price-regular').html(priceRegular.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     // Final price
     var priceFinal = priceRegular;
@@ -24,14 +25,10 @@ function recalcPlan(planid) {
     }
     item.find('.price-final').html(priceFinal.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
-    if(priceFinal.eq(priceRegular)) {
-        item.find('.price-regular').html('&nbsp;');
-        item.find('.discount-perc-wrapper').addClass('d-none');
-    }
-    else {
-        item.find('.price-regular').html(priceRegular.toFixed(window.billingPrec) + ' ' + window.billingAsset);
-        item.find('.discount-perc-wrapper').removeClass('d-none');
-    }
+    if(priceFinal.eq(priceRegular))
+        item.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
+    else
+        item.find('.discount-perc-wrapper, .price-regular').removeClass('d-none');
 }
 
 function renderPlan(planid, data) {
