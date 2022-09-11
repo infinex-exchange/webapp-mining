@@ -32,5 +32,5 @@
 /* ApexCharts */
 
 .apexcharts-canvas {
-    background: red;
+    background-color: red !important;
 }
