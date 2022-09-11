@@ -146,7 +146,8 @@ function renderPlan(planid, data) {
             },
             toolbar: {
                 show: false
-            }
+            },
+            background: '#662'
         },
         stroke: {
             curve: 'straight'
