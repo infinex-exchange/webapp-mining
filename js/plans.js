@@ -51,7 +51,7 @@ function renderPlan(planid, data) {
                                 </div>
                             </div>
                             <div class="col-4 my-auto text-center">
-                                <h4 class="d-inline price-regular text-decoration-line-through"></h4>
+                                <h4 class="d-inline price-regular text-decoration-line-through pe-2"></h4>
                                 <h3 class="d-inline price-final">2222</h3>
                             </div>
                         </div>
