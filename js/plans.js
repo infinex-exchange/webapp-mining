@@ -78,7 +78,16 @@ function renderPlan(planid, data) {
         stroke: {
             curve: 'straight'
         },
-        labels: labels,
+        xaxis: {
+            type: 'datetime'
+        },
+        yaxis: {
+            labels: {
+                formatter: function (value) {
+                    return value * 2 + ' USDT';
+                }
+            }
+        }
     };
 
     var chart = new ApexCharts($('.plan-item[data-planid="' + planid + '"] .forecast-chart')[0], options);
