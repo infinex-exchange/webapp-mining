@@ -58,7 +58,7 @@ function renderPlan(planid, data) {
                         </div>
 		            </div>
 		            <div class="col-12 col-lg-6">
-                        <div class="row" style="hiehgt: 52px">
+                        <div class="row" style="height: 52px>
                             <div class="col-12">
                                 <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
                             </div>
