@@ -71,8 +71,9 @@ function renderPlan(planid, data) {
                                 </div>
                             </div>
                             <div class="col-6 col-lg-7 my-auto text-center">
-                                <h4 class="d-lg-inline price-regular secondary crossed-out pe-lg-3"></h4>
-                                <h3 class="d-lg-inline price-final"></h3>
+                                <h4 class="d-lg-inline price-regular secondary crossed-out m-0"></h4>
+                                <span class="px-2"></span>
+                                <h3 class="d-lg-inline price-final m-0"></h3>
                             </div>
                         </div>
 		            </div>
