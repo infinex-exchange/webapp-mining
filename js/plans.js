@@ -70,9 +70,6 @@ function renderPlan(planid, data) {
             },
             toolbar: {
                 show: false
-            },
-            animations: {
-                enabled: false
             }
         },
         stroke: {
