@@ -46,6 +46,9 @@ function renderPlan(planid, data) {
 	    </div>
 	`);
     
+    var labels = new Array();
+    for(var i = 0; i <= data.months; i++)
+        labels.push(i);
     
     var options = {
         series: [
@@ -75,7 +78,7 @@ function renderPlan(planid, data) {
         stroke: {
             curve: 'straight'
         },
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+        labels: labels,
     };
 
     var chart = new ApexCharts($('.plan-item[data-planid="' + planid + '"] .forecast-chart')[0], options);
