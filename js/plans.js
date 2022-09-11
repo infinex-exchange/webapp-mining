@@ -81,7 +81,7 @@ function renderPlan(planid, data) {
                             </div>
                         </div>
 		            </div>
-		            <div class="col-12 col-lg-6">
+		            <div class="col-12 col-lg-6 pt-3 pt-lg-0">
                         <div class="row">
                             <div class="col-12 text-center">
                                 <h5 class="secondary">
