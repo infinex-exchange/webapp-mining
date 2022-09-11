@@ -41,7 +41,7 @@ function renderPlan(planid, data) {
                                 <h3 class="d-inline units"></h3>
                             </div>
                             <div class="col-4 my-auto text-center">
-                                <div class="d-inline rounded p-2 bg-red">
+                                <div class="d-inline rounded py-2 px-4 bg-red">
                                     <strong>-20%</strong>
                                 </div>
                             </div>
