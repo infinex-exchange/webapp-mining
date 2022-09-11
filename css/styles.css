@@ -17,3 +17,10 @@
     -webkit-transform: skewY(10deg);
     transform: skewY(10deg);
 }
+
+/* Jumbotron background */
+
+.jumbotron {
+    background-image: url("/mining/img/cloud_mining.png");
+    background-position: bottom right;
+}
