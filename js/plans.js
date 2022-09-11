@@ -62,7 +62,7 @@ function renderPlan(planid, data) {
                             <div class="col-12">
                                 <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
                             </div>
-                            <div class="col-6 my-auto text-center">
+                            <div class="col-5 my-auto text-center">
                                 <h3 class="d-inline units"></h3>
                             </div>
                             <div class="col-2 my-auto text-center">
@@ -70,7 +70,7 @@ function renderPlan(planid, data) {
                                     <strong class="discount-perc"></strong>
                                 </div>
                             </div>
-                            <div class="col-4 my-auto text-center">
+                            <div class="col-5 my-auto text-center">
                                 <h4 class="price-regular secondary crossed-out m-0"></h4>
                                 <h3 class="price-final m-0"></h3>
                             </div>
