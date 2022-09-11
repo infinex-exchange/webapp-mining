@@ -2,12 +2,14 @@ function renderPlan(planid, data) {
     var header = '';
     
     $.each(data.assets, function(k, v) {
-        var headerAdd = '';
-        if(header != '') headerAdd = ' + ';
+        if(header != '')
+            header += `
+                <h3 class="d-inline m-0"> + </h3>
+            `;
         
         header += `
             <img width="24" height="24" src="${v.icon_url}">
-            <h3 class="d-inline m-0">${name}${headerAdd}</h3>
+            <h3 class="d-inline m-0">${name}</h3>
         `;
     });
     
