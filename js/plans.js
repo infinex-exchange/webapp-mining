@@ -67,7 +67,7 @@ function renderPlan(planid, data) {
     
     $.each(data.assets, function(k, v) {
         if(name != '') name += ' + ';
-        name += k;
+        name += v.name;
         icons += `
             <img width="24" height="24" src="${v.icon_url}">
         `;
