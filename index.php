@@ -28,7 +28,7 @@
             <div id="plans-data" class="row gx-0 gx-lg-3 gy-3 m-0">
             </div>
             
-            <div class="row m-0 py-5">
+            <div class="row m-0 pt-5">
 	            <div class="col-12">
                     <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
