@@ -42,6 +42,7 @@ function recalcPlan(planid) {
         dailyMasterTotal = dailyMasterTotal.plus(dailyMasterThis);
         
         var seriesData = new Array();
+        var date = new Date();
         for(var month = 0; month <= window.plans[planid].months; month++)
             seriesData.push({
                 x: new Date(date.setMonth(date.getMonth() + month)).getTime(),
