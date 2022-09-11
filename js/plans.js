@@ -32,31 +32,32 @@ function recalcPlan(planid) {
     
     // Forecast
     var dailyMasterTotal = new BigNumber(0);
-    var series = new Array();
     
     $.each(window.plans[planid].assets, function(k, v) {
         var dailyMasterThis = new BigNumber(v.unit_avg_revenue);
         dailyMasterThis = dailyMasterThis.times(units)
                                          .times(v.asset_price_avg);
         dailyMasterTotal = dailyMasterTotal.plus(dailyMasterThis);
-        
-        var seriesData = new Array();
-        for(var month = 0; month <= window.plans[planid].months; month++) {
-            var date = new Date();
-            
-            seriesData.push({
-                x: new Date(date.setMonth(date.getMonth() + month)).getTime(),
-                y: dailyMasterThis.times(month).times(30).toFixed(window.billingPrec)
-            });
-        }
-        
-        series.push({
-            name: k,
-            data: seriesData
-        });
     });
     
-    window.charts[planid].updateSeries(series, true);
+    var seriesData = new Array();
+    for(var month = 0; month <= window.plans[planid].months; month++) {
+        var date = new Date();
+        
+        seriesData.push({
+            x: new Date(date.setMonth(date.getMonth() + month)).getTime(),
+            y: dailyMasterTotal.times(month)
+                               .times(30.5)
+                               .minus(priceFinal)
+                               .toFixed(window.billingPrec)
+        });
+    }
+    
+    window.charts[planid].updateSeries([
+	    {
+	        data: seriesData
+	    }
+    ], true);
     
 }
 
@@ -145,8 +146,7 @@ function renderPlan(planid, data) {
             },
             toolbar: {
                 show: false
-            },
-            stacked: true
+            }
         },
         stroke: {
             curve: 'straight'
