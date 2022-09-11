@@ -1,5 +1,18 @@
 /* Crossed out price */
 
 .crossed-out {
-    background: linear-gradient(to left top, transparent 47%, var(--color-red) 48%, var(--color-red) 51%, transparent 52%);
+    position: relative;
+    display: inline-block;
+}
+.crossed-out::before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+.crossed-out::before {
+    border-bottom: 2px solid red;
+    -webkit-transform: skewY(-10deg);
+    transform: skewY(-10deg);
 }
