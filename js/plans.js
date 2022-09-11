@@ -1,15 +1,12 @@
 function renderPlan(planid, data) {
-    var header = '';
+    var name = '';
+    var icons = '';
     
     $.each(data.assets, function(k, v) {
-        if(header != '')
-            header += `
-                <h3 class="d-inline m-0"> + </h3>
-            `;
-        
-        header += `
+        if(name != '') name += ' + ';
+        name += k;
+        icons += `
             <img width="24" height="24" src="${v.icon_url}">
-            <h3 class="d-inline m-0">${k}</h3>
         `;
     });
     
@@ -17,17 +14,13 @@ function renderPlan(planid, data) {
 	    <div class="col-12 plan-item">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
-	                <div class="col-12 py-2 text-center">
+	                <div class="col-12 py-2">
                         <div class="row">
                             <div class="col-auto my-auto ms-auto">
-		                        ${header}
+		                        ${icons}
                             </div>
                             <div class="col-auto my-auto me-auto">
-<<<<<<< HEAD
-                                
-=======
-                                <h3>${name}</h3>
->>>>>>> parent of fde0403 (Styling)
+                                <h3 class="m-0">${name}</h3>
                             </div>
                         </div>
 		            </div>
