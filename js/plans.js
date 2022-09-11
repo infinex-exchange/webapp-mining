@@ -15,7 +15,10 @@ function recalcPlan(planid) {
     if(window.plans[planid].discount_perc != null && window.plans[planid].discount_every_units != null) {
         var discountTotalPerc = new BigNumber(units);
         discountTotalPerc = discountTotalPerc.idiv(window.plans[planid].discount_every_units)
-                                             .times(window.plans[planid].discount_perc);
+                                             .times(window.plans[planid].discount_perc)
+                                             .dp(0);
+        item.find('.discount-perc').html('-' + discountTotalPerc.toFixed(0) + '%');
+        
         var discountFactor = new BigNumber(100);
         discountFactor = discountFactor.minus(discountTotalPerc).div(100);
         priceFinal = priceRegular.times(discountFactor).dp(window.billingPrec);
