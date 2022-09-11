@@ -29,6 +29,33 @@ function recalcPlan(planid) {
         item.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
     else
         item.find('.discount-perc-wrapper, .price-regular').removeClass('d-none');
+    
+    // Forecast
+    var dailyMasterTotal = new BigNumber(0);
+    var series = new Array();
+    
+    $.each(window.plans[planid].assets, function(k, v) {
+        var dailyMasterThis = new BigNumber(v.unit_avg_revenue);
+        dailyMasterThis = dailyMasterThis.times(units)
+                                         .times(v.asset_price_avg)
+                                         .dp(window.billingPrec);
+        dailyMasterTotal = dailyMasterTotal.plus(dailyMasterThis);
+        
+        var seriesData = new Array();
+        for(var month = 0; month <= window.plans[planid].months; month++)
+            seriesData.push({
+                x: new Date(date.setMonth(date.getMonth() + month)).getTime(),
+                y: dailyMasterThis.times(month).times(30).toFixed(window.billingPrec)
+            });
+        
+        series.push({
+            name: k,
+            data: seriesData
+        });
+    });
+    
+    window.charts[planid].updateSeries(series, true);
+    
 }
 
 function renderPlan(planid, data) {
