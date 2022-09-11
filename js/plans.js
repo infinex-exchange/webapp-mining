@@ -4,6 +4,11 @@ function recalcPlan(planid) {
     var units = item.find('.form-range').val();
     
     item.find('.units').html(units + ' ' + window.plans[planid].unit_name + 's');
+    
+    var priceRegular = new BigNumber(window.plans[planid].unit_price);
+    priceRegular = priceRegular.times(units).dp(window.billingPrec);
+    
+    item.find('.price-regular').html(priceRegular.toFixed(window.billingPrec) + ' ' + window.billingAsset);
 }
 
 function renderPlan(planid, data) {
@@ -46,6 +51,8 @@ function renderPlan(planid, data) {
                                 </div>
                             </div>
                             <div class="col-4 my-auto text-center">
+                                <h3 class="d-inline price-regular text-decoration-line-through"></h3>
+                                <h3 class="d-inline price-final"></h3>
                             </div>
                         </div>
 		            </div>
@@ -120,6 +127,8 @@ $(document).ready(function() {
     .done(function (data) {
         if(data.success) {
             window.plans = data.plans;
+            window.billingAsset = data.billing_asset;
+            window.billingPrec = data.billing_prec;
             
             $.each(data.plans, function(k, v) {
                 renderPlan(k, v);
