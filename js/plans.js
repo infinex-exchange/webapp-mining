@@ -26,9 +26,9 @@ function recalcPlan(planid) {
     item.find('.price-final').html(priceFinal.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     if(priceFinal.eq(priceRegular))
-        item.find('.discount-perc, .price-regular').addClass('d-none');
+        item.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
     else
-        item.find('.discount-perc, .price-regular').removeClass('d-none');
+        item.find('.discount-perc-wrapper, .price-regular').removeClass('d-none');
 }
 
 function renderPlan(planid, data) {
@@ -66,7 +66,7 @@ function renderPlan(planid, data) {
                                 <h3 class="d-inline units"></h3>
                             </div>
                             <div class="col-4 my-auto text-center">
-                                <div class="d-inline rounded py-2 px-4 bg-red">
+                                <div class="discount-perc-wrapper d-inline rounded py-2 px-4 bg-red">
                                     <strong class="discount-perc"></strong>
                                 </div>
                             </div>
