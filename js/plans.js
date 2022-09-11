@@ -37,15 +37,12 @@ function recalcPlan(planid) {
     $.each(window.plans[planid].assets, function(k, v) {
         var dailyMasterThis = new BigNumber(v.unit_avg_revenue);
         dailyMasterThis = dailyMasterThis.times(units)
-                                         .times(v.asset_price_avg)
-                                         .dp(window.billingPrec);
+                                         .times(v.asset_price_avg);
         dailyMasterTotal = dailyMasterTotal.plus(dailyMasterThis);
         
         var seriesData = new Array();
         for(var month = 0; month <= window.plans[planid].months; month++) {
             var date = new Date();
-            
-            if(k == 'BPX') console.log(dailyMasterThis);
             
             seriesData.push({
                 x: new Date(date.setMonth(date.getMonth() + month)).getTime(),
