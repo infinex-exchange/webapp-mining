@@ -157,12 +157,15 @@ function renderPlan(planid, data) {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value * 2 + ' USDT';
+                    return value + ' USDT';
                 }
             }
         },
         noData: {
             text: 'Loading...'
+        },
+        dataLabels: {
+            enabled: false
         }
     };
     
