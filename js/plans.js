@@ -140,13 +140,14 @@ function renderPlan(planid, data) {
         series: [],
         chart: {
             height: 350,
-            type: 'line',
+            type: 'area',
             zoom: {
                 enabled: false
             },
             toolbar: {
                 show: false
-            }
+            },
+            stacked: true
         },
         stroke: {
             curve: 'straight'
