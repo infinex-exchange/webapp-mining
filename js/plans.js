@@ -1,12 +1,13 @@
 function renderPlan(planid, data) {
-    var name = '';
-    var icons = '';
+    var header = '';
     
     $.each(data.assets, function(k, v) {
-        if(name != '') name += ' + ';
-        name += k;
-        icons += `
+        var headerAdd = '';
+        if(header != '') headerAdd = ' + ';
+        
+        header += `
             <img width="24" height="24" src="${v.icon_url}">
+            <h3 class="d-inline m-0">${name}${headerAdd}</h3>
         `;
     });
     
@@ -14,13 +15,13 @@ function renderPlan(planid, data) {
 	    <div class="col-12 plan-item">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
-	                <div class="col-12 py-2">
+	                <div class="col-12 py-2 text-center">
                         <div class="row">
                             <div class="col-auto my-auto ms-auto">
 		                        ${icons}
                             </div>
                             <div class="col-auto my-auto me-auto">
-                                <h3 class="m-0">${name}</h3>
+                                
                             </div>
                         </div>
 		            </div>
