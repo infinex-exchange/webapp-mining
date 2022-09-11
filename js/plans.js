@@ -1,14 +1,26 @@
 function recalcPlan(planid) {
     var item = $('.plan-item[data-planid="' + planid + '"]');
     
+    // Units
     var units = item.find('.form-range').val();
-    
     item.find('.units').html(units + ' ' + window.plans[planid].unit_name + 's');
     
+    // Regular price
     var priceRegular = new BigNumber(window.plans[planid].unit_price);
     priceRegular = priceRegular.times(units).dp(window.billingPrec);
-    
     item.find('.price-regular').html(priceRegular.toFixed(window.billingPrec) + ' ' + window.billingAsset);
+    
+    // Final price
+    var priceFinal = priceRegular;
+    if(window.plans[planid].discount_perc != null && window.plans[planid].discount_every_units != null) {
+        var discountTotalPerc = new BigNumber(units);
+        discountTotalPerc = discountTotalPerc.idiv(window.plans[planid].discount_every_units)
+                                             .times(window.plans[planid].discount_perc);
+        var discountFactor = new BigNumber(100);
+        discountFactor = discountFactor.minus(discountTotalPerc).div(100);
+        priceFinal = priceRegular.times(discountFactor).dp(window.billingPrec);
+    }
+    item.find('.price-final').html(priceFinal.toFixed(window.billingPrec) + ' ' + window.billingAsset);
 }
 
 function renderPlan(planid, data) {
@@ -47,12 +59,12 @@ function renderPlan(planid, data) {
                             </div>
                             <div class="col-4 my-auto text-center">
                                 <div class="d-inline rounded py-2 px-4 bg-red">
-                                    <strong>-20%</strong>
+                                    <strong class="discount-perc"></strong>
                                 </div>
                             </div>
                             <div class="col-4 my-auto text-center">
                                 <h4 class="d-inline price-regular text-decoration-line-through pe-2"></h4>
-                                <h3 class="d-inline price-final">2222</h3>
+                                <h3 class="d-inline price-final"></h3>
                             </div>
                         </div>
 		            </div>
