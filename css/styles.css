@@ -28,3 +28,9 @@
         background-repeat: no-repeat;
     }
 }
+
+/* ApexCharts */
+
+.apexcharts-canvas {
+    background: initial;
+}
