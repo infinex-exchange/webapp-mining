@@ -71,7 +71,7 @@ function renderPlan(planid, data) {
                                 </div>
                             </div>
                             <div class="col-6 my-auto text-center">
-                                <h4 class="d-lg-inline price-regular text-decoration-line-through pe-lg-3" style="text-decoration-color: var(--color-red)"></h4>
+                                <h4 class="d-lg-inline price-regular text-decoration-line-through pe-lg-3" style="text-decoration-color: var(--color-red) !important"></h4>
                                 <h3 class="d-lg-inline price-final"></h3>
                             </div>
                         </div>
