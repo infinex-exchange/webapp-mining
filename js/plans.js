@@ -24,6 +24,11 @@ function recalcPlan(planid) {
         priceFinal = priceRegular.times(discountFactor).dp(window.billingPrec);
     }
     item.find('.price-final').html(priceFinal.toFixed(window.billingPrec) + ' ' + window.billingAsset);
+    
+    if(priceFinal.eq(priceRegular))
+        item.find('.discount-perc, .price-regular').hide();
+    else
+        item.find('.discount-perc, .price-regular').show();
 }
 
 function renderPlan(planid, data) {
