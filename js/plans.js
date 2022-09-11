@@ -14,7 +14,7 @@ function renderPlan(planid, data) {
 	    <div class="col-12 plan-item" data-planid="${planid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
-	                <div class="col-12 py-2">
+	                <div class="col-12 pt-2 pb-4">
                         <div class="row">
                             <div class="col-auto my-auto ms-auto">
 		                        ${icons}
