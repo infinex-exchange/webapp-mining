@@ -23,4 +23,5 @@
 .jumbotron {
     background-image: url("/mining/img/cloud_mining.png");
     background-position: bottom right;
+    background-size: contain;
 }
