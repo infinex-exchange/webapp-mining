@@ -70,7 +70,7 @@ function renderPlan(planid, data) {
                                     <strong class="discount-perc"></strong>
                                 </div>
                             </div>
-                            <div class="col-4 my-auto text-center">
+                            <div class="col-4 my-auto text-center" style="height: 52px">
                                 <h4 class="price-regular text-decoration-line-through pe-2"></h4>
                                 <h3 class="price-final"></h3>
                             </div>
