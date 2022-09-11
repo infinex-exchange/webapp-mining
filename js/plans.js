@@ -27,7 +27,7 @@ function renderPlan(planid, data) {
 		            <div class="col-12 col-lg-6">
                         <div class="row">
                             <div class="col-12">
-                                <input type="range" class="form-range" min="0" max="0" step="1" value="0">
+                                <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}">
                             </div>
                         </div>
 		            </div>
