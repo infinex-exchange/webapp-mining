@@ -20,9 +20,11 @@
 
 /* Jumbotron background */
 
-.jumbotron {
-    background-image: url("/mining/img/cloud_mining.png");
-    background-position: bottom right;
-    background-size: contain;
-    background-repeat: no-repeat;
+@media (min-width: 992px) {
+    .jumbotron {
+        background-image: url("/mining/img/cloud_mining.png");
+        background-position: bottom right;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 }
