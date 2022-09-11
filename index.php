@@ -18,8 +18,8 @@
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 h-rest pt-2 p-0">
         
-            <div class="row m-0 px-4 py-5">
-                <div class="jumbotron col-12">
+            <div class="jumbotron row m-0 px-4 py-5">
+                <div class="col-12">
                     <h1>Vayamos Mining</h1>
                     <p>Access cryptocurrency mining profits without building your own infrastructure.</p>
                 </div>
