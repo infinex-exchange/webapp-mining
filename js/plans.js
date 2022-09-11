@@ -1,3 +1,11 @@
+function recalcPlan(planid) {
+    var item = $('.plan-item[data-planid="' + planid + '"]');
+    
+    var units = item.find('.form-range').val();
+    
+    item.find('.units').html(units + ' ' + window.plans[planid].unit_name);
+}
+
 function renderPlan(planid, data) {
     var name = '';
     var icons = '';
@@ -27,7 +35,14 @@ function renderPlan(planid, data) {
 		            <div class="col-12 col-lg-6">
                         <div class="row">
                             <div class="col-12">
-                                <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}">
+                                <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
+                            </div>
+                            <div class="col-4">
+                                <h5 class="d-inline units"></h5>
+                            </div>
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4">
                             </div>
                         </div>
 		            </div>
@@ -79,12 +94,17 @@ function renderPlan(planid, data) {
             text: 'Loading...'
         }
     };
+    
+    var item = $('.plan-item[data-planid="' + planid + '"]');
+    
+    item.find('.form-range').trigger('input');
 
-    var chart = new ApexCharts($('.plan-item[data-planid="' + planid + '"] .forecast-chart')[0], options);
-    chart.render();
+    window.charts[planid] = new ApexCharts(item.find('.forecast-chart')[0], options);
+    window.charts[planid].render();
 }
 
 $(document).ready(function() {
+    window.charts = new Object();
     window.renderingStagesTarget = 1;
     
     $.ajax({
@@ -96,6 +116,8 @@ $(document).ready(function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
+            window.plans = data.plans;
+            
             $.each(data.plans, function(k, v) {
                 renderPlan(k, v);
             });
