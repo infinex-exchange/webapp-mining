@@ -166,7 +166,10 @@ function renderPlan(planid, data) {
         },
         dataLabels: {
             enabled: false
-        }
+        },
+        theme: {
+	        mode: 'dark'
+	    }
     };
     
     var item = $('.plan-item[data-planid="' + planid + '"]');
