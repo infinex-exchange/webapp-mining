@@ -1,5 +1,5 @@
 /* Crossed out price */
 
 .crossed-out {
-    text-decoration: line-through rgba(255, 0, 0, 0.5) solid 2px;
+    background: linear-gradient(to left top, transparent 47.75%, var(--color-red) 49.5%, var(--color-red) 50.5%, transparent 52.25%);
 }
