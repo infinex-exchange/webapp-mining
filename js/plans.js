@@ -62,10 +62,10 @@ function renderPlan(planid, data) {
                             <div class="col-12">
                                 <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
                             </div>
-                            <div class="col-6 col-lg-3 my-auto text-center">
+                            <div class="col-6 my-auto text-center">
                                 <h3 class="d-inline units"></h3>
                             </div>
-                            <div class="col-2 my-auto text-right">
+                            <div class="col-2 my-auto text-center">
                                 <div class="discount-perc-wrapper d-inline rounded py-2 px-2 px-lg-4 bg-red">
                                     <strong class="discount-perc"></strong>
                                 </div>
