@@ -1,5 +1,5 @@
 /* Crossed out price */
 
 .crossed-out {
-    text-decoration: line-through var(--color-red) solid 3px;
+    text-decoration: line-through rgba(255, 0, 0, 0.3) solid 2px;
 }
