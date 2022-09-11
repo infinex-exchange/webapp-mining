@@ -1,10 +1,22 @@
-function renderPlan(data) {
+function renderPlan(planid, data) {
+    var name = '';
+    var icons = '';
+    
+    $.each(data.assets, function(k, v) {
+        if(name != '') name += ' + ';
+        name += k;
+        icons += `
+            <img width="16" height="16" src="${v.icon_url}">
+        `;
+    });
+    
     return `
 	    <div class="col-12 plan-item">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
 	                <div class="col-12 py-2 text-center">
-		                <h3>${data.name}</h3>
+		                ${icons}
+                        <h3>${name}</h3>
 		            </div>
 		            <div class="col-12">
                         <input type="range" class="form-range" min="0" max="0" step="1" value="0">
@@ -30,7 +42,7 @@ $(document).ready(function() {
     .done(function (data) {
         if(data.success) {
             $.each(data.plans, function(k, v) {
-                $('#plans-data').append(renderPlan(v));
+                $('#plans-data').append(renderPlan(k, v));
             });
             
             $(document).trigger('renderingStage');
