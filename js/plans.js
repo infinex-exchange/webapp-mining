@@ -54,7 +54,7 @@ function renderPlan(planid, data) {
         series: [
             {
                 name: 'Peter',
-                data: [5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9]
+                data: [5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
             },
             {
                 name: 'Johnny',
