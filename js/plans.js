@@ -14,9 +14,15 @@ function renderPlan(planid, data) {
 	    <div class="col-12 plan-item">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
-	                <div class="col-12 py-2 text-center">
-		                ${icons}
-                        <h3 class="d-inline">${name}</h3>
+	                <div class="col-12 py-2">
+                        <div class="row">
+                            <div class="col-auto my-auto ms-auto"
+		                        ${icons}
+                            </div>
+                            <div class="col-auto my-auto me-auto">
+                                <h3>${name}</h3>
+                            </div>
+                        </div>
 		            </div>
 		            <div class="col-12">
                         <input type="range" class="form-range" min="0" max="0" step="1" value="0">
