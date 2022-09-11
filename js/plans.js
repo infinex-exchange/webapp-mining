@@ -37,15 +37,15 @@ function renderPlan(planid, data) {
                             <div class="col-12">
                                 <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
                             </div>
-                            <div class="col-4 text-center">
+                            <div class="col-4 my-auto text-center">
                                 <h3 class="d-inline units"></h3>
                             </div>
-                            <div class="col-4 text-center">
-                                <div class="bg-red">
+                            <div class="col-4 my-auto text-center">
+                                <div class="d-inline p-2 bg-red">
                                     <strong>-20%</strong>
                                 </div>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 my-auto text-center">
                             </div>
                         </div>
 		            </div>
