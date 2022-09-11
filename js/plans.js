@@ -45,7 +45,7 @@ function renderPlan(planid, data) {
                                     <strong>-20%</strong>
                                 </div>
                             </div>
-                            <div class="col-4 my-auto text-center">
+                            <div class="col-4 my-auto rounded text-center">
                             </div>
                         </div>
 		            </div>
