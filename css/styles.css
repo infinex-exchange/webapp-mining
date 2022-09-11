@@ -28,9 +28,3 @@
         background-repeat: no-repeat;
     }
 }
-
-/* ApexCharts */
-
-.apexcharts-canvas {
-    background-color: red !important;
-}
