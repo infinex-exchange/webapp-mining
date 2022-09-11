@@ -1,4 +1,5 @@
 function recalcPlan(planid) {
+    console.log('recalc');
     var item = $('.plan-item[data-planid="' + planid + '"]');
     
     var units = item.find('.form-range').val();
