@@ -74,6 +74,11 @@ function renderPlan(planid, data) {
                                 <h4 class="price-regular secondary crossed-out m-0"></h4>
                                 <h3 class="price-final m-0"></h3>
                             </div>
+                            <div class="col-7">
+                            </div>
+                            <div class="col-5">
+                                <button class="btn btn-primary w-100" onClick="confirmBuyModal()">Start mining</button>
+                            </div>
                         </div>
 		            </div>
 		            <div class="col-12 col-lg-6">
