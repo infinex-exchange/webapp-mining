@@ -87,6 +87,9 @@ function renderPlan(planid, data) {
                     return value * 2 + ' USDT';
                 }
             }
+        },
+        dataLabels: {
+            enabled: false
         }
     };
 
