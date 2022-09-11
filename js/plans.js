@@ -6,7 +6,7 @@ function renderPlan(planid, data) {
         if(name != '') name += ' + ';
         name += k;
         icons += `
-            <img width="16" height="16" src="${v.icon_url}">
+            <img width="24" height="24" src="${v.icon_url}">
         `;
     });
     
@@ -16,7 +16,7 @@ function renderPlan(planid, data) {
 	            <div class="row">
 	                <div class="col-12 py-2 text-center">
 		                ${icons}
-                        <h3>${name}</h3>
+                        <h3 class="d-inline">${name}</h3>
 		            </div>
 		            <div class="col-12">
                         <input type="range" class="form-range" min="0" max="0" step="1" value="0">
