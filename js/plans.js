@@ -84,7 +84,7 @@ function renderPlan(planid, data) {
         },
     };
 
-    var chart = new ApexCharts($('.plan-item[data-planid="' + planid + '"] > .forecast-chart')[0], options);
+    var chart = new ApexCharts($('.plan-item[data-planid="' + planid + '"] .forecast-chart'), options);
     chart.render();
 }
 
