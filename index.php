@@ -28,21 +28,6 @@
             <div id="plans-data" class="row gx-0 gx-lg-3 gy-3 m-0">
             </div>
             
-            <div class="row m-0 pt-5">
-	            <div class="col-12">
-                    <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
-                        <div class="px-2">
-                            <i class="fa-solid fa-chart-line fa-2x"></i>
-                        </div>
-                        <div class="px-2">
-                            All <span class="billing-asset"></span> estimations are based on the average exchange rate for the last 7 days.<br>
-                            All forecasts are based on the current mining profitability of the offered coins.<br>
-                            Mining profitability varies all the time. Do your own research before purchasing the service.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="row m-0 px-4 py-5 index-section gy-4">
                 <div class="col-12 col-md-6 col-lg-4">
                     <h3>
@@ -70,6 +55,21 @@
                     <span class="secondary">
                         If you don't have the location to host mining hardware yourself, cloud mining is a perfect choice!
                     </span>
+                </div>
+            </div>
+            
+            <div class="row m-0 pb-5">
+	            <div class="col-12">
+                    <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
+                        <div class="px-2">
+                            <i class="fa-solid fa-chart-line fa-2x"></i>
+                        </div>
+                        <div class="px-2">
+                            All <span class="billing-asset"></span> estimations are based on the average exchange rate for the last 7 days.<br>
+                            All forecasts are based on the current mining profitability of the offered coins.<br>
+                            Mining profitability varies all the time. Do your own research before purchasing the service.
+                        </div>
+                    </div>
                 </div>
             </div>
         
