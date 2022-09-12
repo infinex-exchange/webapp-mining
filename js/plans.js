@@ -97,7 +97,7 @@ function recalcPlan(planid) {
     });
     
     item.find('.time-period').html(window.plans[planid].months + ' months');
-    item.find('.total-revenue').html(revenDetailed + '<br>' + lastReven + ' ' + window.billingAsset);
+    item.find('.total-revenue').html(revenDetailed + '<br><i>(' + lastReven + ' ' + window.billingAsset + ')</i>';
     item.find('.total-profit').html(lastProfit + ' ' + window.billingAsset);
 }
 
