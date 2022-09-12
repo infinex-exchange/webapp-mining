@@ -58,20 +58,18 @@ function recalcPlan(planid) {
         dateFuture.setMonth(dateFuture.getMonth() + month);
         days = Math.round((dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24));
         
-        lastReven = dailyMasterTotal.times(days)
-                                    .toFixed(window.billingPrec);
+        lastReven = dailyMasterTotal.times(days);
         lastProfit = dailyMasterTotal.times(days)
-                                     .minus(priceFinal)
-                                     .toFixed(window.billingPrec); 
+                                     .minus(priceFinal);
         
         revenSeries.push({
             x: dateFuture.getTime(),
-            y: lastReven
+            y: lastReven.toFixed(window.billingPrec)
         });
         
         profitSeries.push({
             x: dateFuture.getTime(),
-            y: lastProfit
+            y: lastProfit.toFixed(window.billingPrec)
         });
     }
     
@@ -97,8 +95,8 @@ function recalcPlan(planid) {
     });
     
     item.find('.time-period').html(window.plans[planid].months + ' months');
-    item.find('.total-revenue').html(revenDetailed + '<i>(' + lastReven + ' ' + window.billingAsset + ')</i>');
-    item.find('.total-profit').html(lastProfit + ' ' + window.billingAsset);
+    item.find('.total-revenue').html(revenDetailed + '<i>(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')</i>');
+    item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     var roi = lastProfit.div(priceFinal).div(100).toFixed(0);
     item.find('.roi').html(roi + '%');
