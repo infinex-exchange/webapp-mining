@@ -219,7 +219,7 @@ function renderPlan(planid, data) {
                             </div>
                         </div>
 		            </div>
-		            <div class="col-12 col-lg-6 pt-5 pt-lg-0">
+		            <div class="col-12 col-lg-6 pt-5">
                         <div class="row">
                             <div class="col-12 text-center">
                                 <h5 class="secondary">
