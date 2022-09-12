@@ -91,9 +91,8 @@ function recalcPlan(planid) {
     var revenDetailed = '';
     
     $.each(dailyNative, function(k, v) {
-        console.log(k + '    ' + v);
         var totalRevenThis = v.times(days);
-        revenDetailed += totalRevenThis.toFixed(window.plans[planid].assets[k].prec);
+        revenDetailed += totalRevenThis.toFixed(window.plans[planid].assets[k].prec)
                       + ' ' + k + '<br>';
     });
     
