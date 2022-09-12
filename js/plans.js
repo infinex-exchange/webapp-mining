@@ -54,6 +54,7 @@ function recalcPlan(planid) {
         var dateFuture = new Date();
         dateFuture.setMonth(dateFuture.getMonth() + month);
         days = Math.round((dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24));
+        console.log(days);
         
         seriesData.push({
             x: dateFuture.getTime(),
