@@ -152,28 +152,28 @@ function renderPlan(planid, data) {
                                                 </h5>
                                             </div>
                                             
-                                            <div class="col-6 pb-2">
+                                            <div class="col-6">
                                                 <span class="time-period"></span>
                                             </div>
-                                            <div class="col-6 pb-2">
+                                            <div class="col-6">
                                                 <span class="total-profit"></span>
                                             </div>
                                             
-                                            <div class="col-6">
+                                            <div class="col-6 mt-auto">
                                                 <h5 class="secondary">
                                                     ROI
                                                 </h5>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-6 mt-auto">
                                                 <h5 class="secondary">
                                                     Return after
                                                 </h5>
                                             </div>
                                             
-                                            <div class="col-6 pb-2">
+                                            <div class="col-6">
                                                 <span class="roi"></span>
                                             </div>
-                                            <div class="col-6 pb-2">
+                                            <div class="col-6">
                                                 <span class="return-after"></span>
                                             </div>
                                         </div>
