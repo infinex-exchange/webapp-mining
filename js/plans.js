@@ -98,7 +98,7 @@ function recalcPlan(planid) {
     item.find('.total-revenue').html(revenDetailed + '<i>(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')</i>');
     item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
-    var roi = lastProfit.div(priceFinal).toString();
+    var roi = lastProfit.div(priceFinal).times(100).toFixed(2);
     item.find('.roi').html(roi + '%');
 }
 
