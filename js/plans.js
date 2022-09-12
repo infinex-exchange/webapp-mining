@@ -99,7 +99,7 @@ function recalcPlan(planid) {
     });
     
     item.find('.time-period').html(window.plans[planid].months + ' months');
-    item.find('.total-revenue').html(revenDetailed + '<i>(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')</i>');
+    item.find('.total-revenue').html(revenDetailed + '<br><i>(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')</i>');
     item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     var roi = lastProfit.div(priceFinal).times(100).toFixed(2);
@@ -151,10 +151,10 @@ function renderPlan(planid, data) {
                                                 </h5>
                                             </div>
                                             
-                                            <div class="col-6">
+                                            <div class="col-6 pb-2">
                                                 <span class="time-period"></span>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-6 pb-2">
                                                 <span class="total-profit"></span>
                                             </div>
                                             
@@ -169,10 +169,10 @@ function renderPlan(planid, data) {
                                                 </h5>
                                             </div>
                                             
-                                            <div class="col-6">
+                                            <div class="col-6 pb-2">
                                                 <span class="roi"></span>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-6 pb-2">
                                                 <span class="return-after"></span>
                                             </div>
                                         </div>
@@ -185,7 +185,7 @@ function renderPlan(planid, data) {
                                                     Total revenue
                                                 </h5>
                                             </div>
-                                            <div class="col-12">
+                                            <div class="col-12 pb-2">
                                                 <span class="total-revenue"></span>
                                             </div>
                                         </div>
