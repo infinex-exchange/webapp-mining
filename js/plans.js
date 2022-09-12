@@ -180,12 +180,12 @@ function renderPlan(planid, data) {
                                     
                                     <div class="col-4">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-12">
                                                 <h5 class="secondary">
                                                     Total profit
                                                 </h5>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-12">
                                                 <span class="total-profit"></span>
                                             </div>
                                         </div>
