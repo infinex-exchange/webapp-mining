@@ -1,3 +1,33 @@
+function buyMining(planid) {
+    var item = $('.plan-item[data-planid="' + planid + '"]');
+    var units = item.find('.form-range').val();
+    
+    $.ajax({
+        url: config.apiUrl + '/mining/plans/buy',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey,
+            planid: planid,
+            units: units
+        }),
+        contentType: "application/json",
+        dataType: "json"
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            window.location.replace('/mining/dashboard');
+        }
+        
+        else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
+    });
+}
+
 function confirmBuyModal(planid) {
     var item = $('.plan-item[data-planid="' + planid + '"]');
     var price = item.find('.price-final').html();
@@ -295,6 +325,11 @@ function renderPlan(planid, data) {
 $(document).ready(function() {
     window.charts = new Object();
     window.renderingStagesTarget = 1;
+    
+    $('#mcb-buy').click(function() {
+        var planid = $(this).closest('.modal').data('planid');
+        buyMining(planid);
+    });
     
     $.ajax({
         url: config.apiUrl + '/mining/plans',
