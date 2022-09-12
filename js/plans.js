@@ -99,7 +99,8 @@ function recalcPlan(planid) {
     });
     
     item.find('.time-period').html(window.plans[planid].months + ' months');
-    item.find('.total-revenue').html(revenDetailed + '<i>(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')</i>');
+    item.find('.total-revenue-detailed').html(revenDetailed);
+    item.find('.total-revenue-equiv').html(lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     var roi = lastProfit.div(priceFinal).times(100).toFixed(2);
@@ -185,8 +186,11 @@ function renderPlan(planid, data) {
                                                     Total revenue
                                                 </h5>
                                             </div>
-                                            <div class="col-12 pb-2">
-                                                <span class="total-revenue"></span>
+                                            <div class="col-12">
+                                                <span class="total-revenue-detailed"></span>
+                                            </div>
+                                            <div class="col-12 mt-auto">
+                                                (<i class="total-revenue-equiv"></i>)
                                             </div>
                                         </div>
                                     </div>
