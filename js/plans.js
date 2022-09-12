@@ -51,7 +51,7 @@ function recalcPlan(planid) {
     var days = 0;
     var lastReven = null;
     var lastProfit = null;
-    var returnIn = 0;
+    var returnAfter = 0;
     
     for(var month = 0; month <= window.plans[planid].months; month++) {
         var dateNow = new Date();
@@ -64,7 +64,7 @@ function recalcPlan(planid) {
                                      .minus(priceFinal);
         
         if(lastProfit.gt(0))
-            returnIn = days;
+            returnAfter = days;
         
         revenSeries.push({
             x: dateFuture.getTime(),
@@ -105,7 +105,7 @@ function recalcPlan(planid) {
     var roi = lastProfit.div(priceFinal).times(100).toFixed(2);
     item.find('.roi').html(roi + '%');
     
-    item.find('.return-in').html(returnIn + ' days');
+    item.find('.return-after').html(returnAfter + ' days');
 }
 
 function renderPlan(planid, data) {
@@ -171,7 +171,7 @@ function renderPlan(planid, data) {
                                     </div>
                                     <div class="col-4">
                                         <h5 class="secondary">
-                                            Return in
+                                            Return after
                                         </h5>
                                     </div>
                                     <div class="col-4">
@@ -184,7 +184,7 @@ function renderPlan(planid, data) {
                                         <span class="roi"></span>
                                     </div>
                                     <div class="col-4">
-                                        <span class="return-in"></span>
+                                        <span class="return-after"></span>
                                     </div>
                                     <div class="col-4">
                                         <span class="total-profit"></span>
