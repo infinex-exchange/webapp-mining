@@ -1,6 +1,6 @@
 function buyMining(planid) {
     var item = $('.plan-item[data-planid="' + planid + '"]');
-    var units = item.find('.form-range').val();
+    var units = parseInt(item.find('.form-range').val());
     
     $.ajax({
         url: config.apiUrl + '/mining/plans/buy',
