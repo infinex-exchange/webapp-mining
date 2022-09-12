@@ -12,11 +12,14 @@ function recalcPlan(planid) {
     
     // Final price
     var priceFinal = priceRegular;
-    if(window.plans[planid].discount_perc != null && window.plans[planid].discount_every_units != null) {
+    if(window.plans[planid].discount_perc_every != null) {
         var discountTotalPerc = new BigNumber(units);
-        discountTotalPerc = discountTotalPerc.idiv(window.plans[planid].discount_every_units)
-                                             .times(window.plans[planid].discount_perc)
+        discountTotalPerc = discountTotalPerc.idiv(window.plans[planid].discount_perc_every)
                                              .dp(0);
+        
+        if(typeof(window.plans[planid].discount_max) !== 'undefined' && discountTotalPerc.gt(window.plans[planid].discount_max))
+            discountTotalPerc = new BigNumber(window.plans[planid].discount_max);
+        
         item.find('.discount-perc').html('-' + discountTotalPerc.toFixed(0) + '%');
         
         var discountFactor = new BigNumber(100);
