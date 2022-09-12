@@ -51,6 +51,7 @@ function recalcPlan(planid) {
         var dateFuture = dateNow;
         dateFuture.setMonth(dateNow.getMonth() + month);
         days = (dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24);
+        console.log(days);
         
         seriesData.push({
             x: dateFuture.getTime(),
@@ -59,8 +60,6 @@ function recalcPlan(planid) {
                                .toFixed(window.billingPrec)
         });
     }
-    
-    console.log(seriesData);
     
     window.charts[planid].updateSeries([
 	    {
