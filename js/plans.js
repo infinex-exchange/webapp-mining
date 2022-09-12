@@ -254,7 +254,10 @@ function renderPlan(planid, data) {
                             <div class="col-7">
                             </div>
                             <div class="col-12 col-lg-5 py-4">
-                                <button class="btn btn-primary w-100" onClick="confirmBuyModal(${planid})">Start mining</button>
+                                <button class="user-only btn btn-primary w-100" onClick="confirmBuyModal(${planid})">Start mining</button>
+                                    <div class="guest-only small border border-primary rounded p-2 text-center">
+                                        <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to buy
+                                    </div>
                             </div>
                         </div>
 		            </div>
