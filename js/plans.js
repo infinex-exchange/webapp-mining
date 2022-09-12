@@ -99,7 +99,7 @@ function recalcPlan(planid) {
     });
     
     item.find('.time-period').html(window.plans[planid].months + ' months');
-    item.find('.total-revenue').html(revenDetailed + '<i class="pt-4">(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')</i>');
+    item.find('.total-revenue').html(revenDetailed + '<i>(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')</i>');
     item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     var roi = lastProfit.div(priceFinal).times(100).toFixed(2);
