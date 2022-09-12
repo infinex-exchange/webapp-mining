@@ -241,7 +241,7 @@ function renderPlan(planid, data) {
     var options = {
         series: [],
         chart: {
-            height: 350,
+            height: 300,
             type: 'area',
             zoom: {
                 enabled: false
