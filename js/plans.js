@@ -56,13 +56,13 @@ function recalcPlan(planid) {
         dateFuture.setMonth(dateFuture.getMonth() + month);
         days = Math.round((dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24));
         
-        revenData.push({
+        revenSeries.push({
             x: dateFuture.getTime(),
             y: dailyMasterTotal.times(days)
                                .toFixed(window.billingPrec)
         });
         
-        profitData.push({
+        profitSeries.push({
             x: dateFuture.getTime(),
             y: dailyMasterTotal.times(days)
                                .minus(priceFinal)
@@ -77,7 +77,7 @@ function recalcPlan(planid) {
 	    },
         {
             name: 'Profit',
-            data: profitData
+            data: profitSeries
         }
     ], true);
     
