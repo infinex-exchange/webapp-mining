@@ -138,57 +138,59 @@ function renderPlan(planid, data) {
                         <div class="row">
                             <div class="col-12 pt-3 pt-lg-0">
                                 <div class="row">
-                                    <div class="col-4">
-                                        <h5 class="secondary">
-                                            Time period
-                                        </h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <h5 class="secondary">
-                                            Total revenue
-                                        </h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <h5 class="secondary">
-                                            Total profit
-                                        </h5>
-                                    </div>
-                                    
-                                    <div class="col-4">
-                                        <span class="time-period"></span>
-                                    </div>
-                                    <div class="col-4">
-                                        <span class="total-revenue"></span>
-                                    </div>
-                                    <div class="col-4">
-                                        <span class="total-profit"></span>
-                                    </div>
-                                    
-                                    <div class="col-4">
-                                        <h5 class="secondary">
-                                            ROI
-                                        </h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <h5 class="secondary">
-                                            Return after
-                                        </h5>
-                                    </div>
-                                    <div class="col-4">
-                                        <h5 class="secondary">
-                                            Total profit
-                                        </h5>
+                                    <div class="col-8">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h5 class="secondary">
+                                                    Time period
+                                                </h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <h5 class="secondary">
+                                                    Total revenue
+                                                </h5>
+                                            </div>
+                                            
+                                            <div class="col-6">
+                                                <span class="time-period"></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="total-revenue"></span>
+                                            </div>
+                                            
+                                            <div class="col-6">
+                                                <h5 class="secondary">
+                                                    ROI
+                                                </h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <h5 class="secondary">
+                                                    Return after
+                                                </h5>
+                                            </div>
+                                            
+                                            <div class="col-6">
+                                                <span class="roi"></span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="return-after"></span>
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                     <div class="col-4">
-                                        <span class="roi"></span>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h5 class="secondary">
+                                                    Total profit
+                                                </h5>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="total-profit"></span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <span class="return-after"></span>
-                                    </div>
-                                    <div class="col-4">
-                                        <span class="total-profit"></span>
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="col-12 pt-5 pt-lg-3 pb-2">
