@@ -49,6 +49,8 @@ function recalcPlan(planid) {
     var revenSeries = new Array();
     var profitSeries = new Array();
     var days = 0;
+    var lastReven = null;
+    var lastProfit = null;
     
     for(var month = 0; month <= window.plans[planid].months; month++) {
         var dateNow = new Date();
@@ -56,17 +58,20 @@ function recalcPlan(planid) {
         dateFuture.setMonth(dateFuture.getMonth() + month);
         days = Math.round((dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24));
         
+        lastReven = dailyMasterTotal.times(days)
+                                    .toFixed(window.billingPrec);
+        lastProfit = dailyMasterTotal.times(days)
+                                     .minus(priceFinal)
+                                     .toFixed(window.billingPrec); 
+        
         revenSeries.push({
             x: dateFuture.getTime(),
-            y: dailyMasterTotal.times(days)
-                               .toFixed(window.billingPrec)
+            y: lastReven
         });
         
         profitSeries.push({
             x: dateFuture.getTime(),
-            y: dailyMasterTotal.times(days)
-                               .minus(priceFinal)
-                               .toFixed(window.billingPrec)
+            y: lastProfit
         });
     }
     
@@ -83,7 +88,9 @@ function recalcPlan(planid) {
     
     // Summary
     
-    //item.find('.').html();
+    item.find('.time-period').html(window.plans[planid].months + ' months');
+    item.find('.total-revenue').html(lastReven + ' ' + window.billingAsset);
+    item.find('.total-profit').html(lastProfit + ' ' + window.billingAsset);
 }
 
 function renderPlan(planid, data) {
@@ -117,6 +124,29 @@ function renderPlan(planid, data) {
                             <div class="col-12 pt-3 pt-lg-0">
                                 <div class="row">
                                     <div class="col-4">
+                                        <h5 class="secondary">
+                                            Time period
+                                        </h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="secondary">
+                                            Total revenue
+                                        </h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="secondary">
+                                            Total profit
+                                        </h5>
+                                    </div>
+                                    
+                                    <div class="col-4">
+                                        <span class="time-period"></span>
+                                    </div>
+                                    <div class="col-4">
+                                        <span class="total-revenue"></span>
+                                    </div>
+                                    <div class="col-4">
+                                        <span class="total-profit"></span>
                                     </div>
                                 </div>
                             </div>
