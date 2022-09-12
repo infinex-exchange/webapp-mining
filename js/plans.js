@@ -137,7 +137,7 @@ function renderPlan(planid, data) {
 		            </div>
 		            <div class="col-12 col-lg-6">
                         <div class="row">
-                            <div class="col-12 pt-3 pt-lg-0">
+                            <div class="col-12 pt-4 pt-lg-0">
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="row">
@@ -197,7 +197,7 @@ function renderPlan(planid, data) {
                                     
                                 </div>
                             </div>
-                            <div class="col-12 pt-5 pb-2">
+                            <div class="col-12 pt-4 pb-2">
                                 <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
                             </div>
                             <div class="col-5 my-auto text-center">
@@ -219,7 +219,7 @@ function renderPlan(planid, data) {
                             </div>
                         </div>
 		            </div>
-		            <div class="col-12 col-lg-6 pt-5">
+		            <div class="col-12 col-lg-6 pt-4">
                         <div class="row">
                             <div class="col-12 text-center">
                                 <h5 class="secondary">
