@@ -147,7 +147,7 @@ function renderPlan(planid, data) {
                                             </div>
                                             <div class="col-6">
                                                 <h5 class="secondary">
-                                                    Total revenue
+                                                    Total profit
                                                 </h5>
                                             </div>
                                             
@@ -155,7 +155,7 @@ function renderPlan(planid, data) {
                                                 <span class="time-period"></span>
                                             </div>
                                             <div class="col-6">
-                                                <span class="total-revenue"></span>
+                                                <span class="total-profit"></span>
                                             </div>
                                             
                                             <div class="col-6">
@@ -182,11 +182,11 @@ function renderPlan(planid, data) {
                                         <div class="row">
                                             <div class="col-12">
                                                 <h5 class="secondary">
-                                                    Total profit
+                                                    Total revenue
                                                 </h5>
                                             </div>
                                             <div class="col-12">
-                                                <span class="total-profit"></span>
+                                                <span class="total-revenue"></span>
                                             </div>
                                         </div>
                                     </div>
