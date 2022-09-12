@@ -60,6 +60,8 @@ function recalcPlan(planid) {
         });
     }
     
+    console.log(seriesData);
+    
     window.charts[planid].updateSeries([
 	    {
 	        data: seriesData
