@@ -62,6 +62,10 @@ function recalcPlan(planid) {
                                .minus(priceFinal)
                                .toFixed(window.billingPrec)
         });
+        
+        console.log(dailyMasterTotal.times(days)
+                               .minus(priceFinal)
+                               .toFixed(window.billingPrec));
     }
     
     window.charts[planid].updateSeries([
