@@ -63,7 +63,7 @@ function recalcPlan(planid) {
         lastProfit = dailyMasterTotal.times(days)
                                      .minus(priceFinal);
         
-        if(lastProfit.gt(0))
+        if(returnAfter != 0 && lastProfit.gt(0))
             returnAfter = days;
         
         revenSeries.push({
