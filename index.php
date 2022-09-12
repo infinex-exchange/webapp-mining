@@ -85,6 +85,7 @@
                     </div>
                     <div class="modal-body">
                         Are you sure you want to purchase the Mining Cloud contract?
+                        <br>
                         The amount of <span id="mcb-price"></span> will be charged from your Vayamos account.
                     </div>
                     <div class="modal-footer">
