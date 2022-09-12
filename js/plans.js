@@ -214,7 +214,7 @@ function renderPlan(planid, data) {
                             </div>
                             <div class="col-7">
                             </div>
-                            <div class="col-12 col-lg-5 pt-4">
+                            <div class="col-12 col-lg-5 py-4">
                                 <button class="btn btn-primary w-100" onClick="confirmBuyModal()">Start mining</button>
                             </div>
                         </div>
