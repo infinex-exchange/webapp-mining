@@ -99,6 +99,9 @@ function recalcPlan(planid) {
     item.find('.time-period').html(window.plans[planid].months + ' months');
     item.find('.total-revenue').html(revenDetailed + '<i>(' + lastReven + ' ' + window.billingAsset + ')</i>');
     item.find('.total-profit').html(lastProfit + ' ' + window.billingAsset);
+    
+    var roi = lastProfit.div(priceFinal).div(100).toFixed(0);
+    item.find('.roi').html(roi + '%');
 }
 
 function renderPlan(planid, data) {
@@ -149,6 +152,32 @@ function renderPlan(planid, data) {
                                     
                                     <div class="col-4">
                                         <span class="time-period"></span>
+                                    </div>
+                                    <div class="col-4">
+                                        <span class="total-revenue"></span>
+                                    </div>
+                                    <div class="col-4">
+                                        <span class="total-profit"></span>
+                                    </div>
+                                    
+                                    <div class="col-4">
+                                        <h5 class="secondary">
+                                            ROI
+                                        </h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="secondary">
+                                            Total revenue
+                                        </h5>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="secondary">
+                                            Total profit
+                                        </h5>
+                                    </div>
+                                    
+                                    <div class="col-4">
+                                        <span class="roi"></span>
                                     </div>
                                     <div class="col-4">
                                         <span class="total-revenue"></span>
