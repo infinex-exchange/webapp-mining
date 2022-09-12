@@ -76,6 +76,25 @@
         <!-- / Root container -->
         </div>
         
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-confirm-buy">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm payment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to purchase the Mining Cloud contract?
+                        The amount of <span id="mcb-price"></span> will be charged from your Vayamos account.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button id="mcb-buy" type="button" class="btn btn-primary">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <?php include('../../templates/modals.php'); ?>
         <script src="/mining/js/plans.js?<?php echo filemtime(__DIR__.'/js/plans.js'); ?>"></script>
         

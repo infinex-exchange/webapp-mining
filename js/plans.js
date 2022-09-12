@@ -1,3 +1,12 @@
+function confirmBuyModal(planid) {
+    var item = $('.plan-item[data-planid="' + planid + '"]');
+    var price = item.find('.price-final').html();
+    
+    $('#mcb-price').html(price);
+    $('#modal-confirm-buy').data('planid', planid)
+                           .modal('show');
+}
+
 function recalcPlan(planid) {
     var item = $('.plan-item[data-planid="' + planid + '"]');
     
@@ -215,7 +224,7 @@ function renderPlan(planid, data) {
                             <div class="col-7">
                             </div>
                             <div class="col-12 col-lg-5 py-4">
-                                <button class="btn btn-primary w-100" onClick="confirmBuyModal()">Start mining</button>
+                                <button class="btn btn-primary w-100" onClick="confirmBuyModal(${planid})">Start mining</button>
                             </div>
                         </div>
 		            </div>
