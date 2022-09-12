@@ -152,10 +152,10 @@ function renderPlan(planid, data) {
                                                 </h4>
                                             </div>
                                             
-                                            <div class="col-6 pb-2">
+                                            <div class="col-6 pb-3">
                                                 <span class="time-period"></span>
                                             </div>
-                                            <div class="col-6 pb-2">
+                                            <div class="col-6 pb-3">
                                                 <span class="total-profit"></span>
                                             </div>
                                             
