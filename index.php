@@ -35,9 +35,9 @@
                             <i class="fa-solid fa-chart-line fa-2x"></i>
                         </div>
                         <div class="px-2">
-                            All forecasts are based on the current mining profitability of the offered coins and the average exchange rate for the last 7 days.
-                            Mining profitability varies all the time.
-                            Do your own research before purchasing the service.
+                            All <span class="billing-asset"> estimations are based on the average exchange rate for the last 7 days.<br>
+                            All forecasts are based on the current mining profitability of the offered coins.<br>
+                            Mining profitability varies all the time. Do your own research before purchasing the service.
                         </div>
                     </div>
                 </div>

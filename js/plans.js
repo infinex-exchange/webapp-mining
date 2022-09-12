@@ -171,7 +171,7 @@ function renderPlan(planid, data) {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value + ' USDT';
+                    return value + ' ' + window.billingAsset;
                 }
             }
         },
@@ -210,6 +210,8 @@ $(document).ready(function() {
             window.plans = data.plans;
             window.billingAsset = data.billing_asset;
             window.billingPrec = data.billing_prec;
+            
+            $('.billing-asset').html(data.billing_asset);
             
             $.each(data.plans, function(k, v) {
                 renderPlan(k, v);
