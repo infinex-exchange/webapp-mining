@@ -50,7 +50,7 @@ function recalcPlan(planid) {
         var dateNow = new Date();
         var dateFuture = new Date;
         dateFuture.setMonth(dateFuture.getMonth() + month);
-        days = (dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24);
+        days = Math.round((dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24));
         
         seriesData.push({
             x: dateFuture.getTime(),
