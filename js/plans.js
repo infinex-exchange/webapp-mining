@@ -46,7 +46,8 @@ function recalcPlan(planid) {
         dailyMasterTotal = dailyMasterTotal.plus(dailyMasterThis);
     });
     
-    var seriesData = new Array();
+    var revenSeries = new Array();
+    var profitSeries = new Array();
     var days = 0;
     
     for(var month = 0; month <= window.plans[planid].months; month++) {
@@ -55,7 +56,13 @@ function recalcPlan(planid) {
         dateFuture.setMonth(dateFuture.getMonth() + month);
         days = Math.round((dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24));
         
-        seriesData.push({
+        revenData.push({
+            x: dateFuture.getTime(),
+            y: dailyMasterTotal.times(days)
+                               .toFixed(window.billingPrec)
+        });
+        
+        profitData.push({
             x: dateFuture.getTime(),
             y: dailyMasterTotal.times(days)
                                .minus(priceFinal)
@@ -65,8 +72,13 @@ function recalcPlan(planid) {
     
     window.charts[planid].updateSeries([
 	    {
-	        data: seriesData
-	    }
+	        name: 'Revenue',
+            data: revenSeries
+	    },
+        {
+            name: 'Profit',
+            data: profitData
+        }
     ], true);
     
     // Summary
