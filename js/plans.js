@@ -137,7 +137,7 @@ function renderPlan(planid, data) {
 		            </div>
 		            <div class="col-12 col-lg-6">
                         <div class="row">
-                            <div class="col-12 pt-4 pt-lg-0">
+                            <div class="col-12 pt-4">
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="row">
