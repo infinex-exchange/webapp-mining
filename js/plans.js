@@ -48,8 +48,8 @@ function recalcPlan(planid) {
     
     for(var month = 0; month <= window.plans[planid].months; month++) {
         var dateNow = new Date();
-        var dateFuture = dateNow;
-        dateFuture.setMonth(dateNow.getMonth() + month);
+        var dateFuture = new Date;
+        dateFuture.setMonth(dateFuture.getMonth() + month);
         days = (dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24);
         console.log(days);
         
