@@ -160,6 +160,23 @@ function renderPlan(planid, data) {
         `;
     });
     
+    var submitHtml = null;
+    
+    if(window.loggedIn) {
+        submitHtml = `
+            <button class="btn btn-primary w-100" onClick="confirmBuyModal(${planid})">
+                Start mining
+            </button>
+        `;
+    }
+    else {
+        submitHtml = `
+            <div class="guest-only small border border-primary rounded p-2 text-center">
+                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to buy
+            </div>
+        `;
+    }
+    
     $('#plans-data').append(`
 	    <div class="col-12 plan-item" data-planid="${planid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
@@ -254,10 +271,7 @@ function renderPlan(planid, data) {
                             <div class="col-7">
                             </div>
                             <div class="col-12 col-lg-5 py-4">
-                                <button class="user-only btn btn-primary w-100" onClick="confirmBuyModal(${planid})">Start mining</button>
-                                    <div class="guest-only small border border-primary rounded p-2 text-center">
-                                        <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to buy
-                                    </div>
+                                ${submitHtml}
                             </div>
                         </div>
 		            </div>
@@ -333,7 +347,9 @@ $(document).ready(function() {
         var planid = $(this).closest('.modal').data('planid');
         buyMining(planid);
     });
-    
+});
+
+$(document).on('authChecked', function() {
     $.ajax({
         url: config.apiUrl + '/mining/plans',
         type: 'POST',
