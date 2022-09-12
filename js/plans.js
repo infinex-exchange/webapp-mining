@@ -88,8 +88,16 @@ function recalcPlan(planid) {
     
     // Summary
     
+    var revenDetailed = '';
+    
+    $.each(dailyNative, function(k, v) {
+        var totalRevenThis = v.times(days);
+        revenDetailed += totalRevenThis.toFixed(window.plans[planid].assets[k].prec);
+                      + ' ' + k + '<br>';
+    });
+    
     item.find('.time-period').html(window.plans[planid].months + ' months');
-    item.find('.total-revenue').html(lastReven + ' ' + window.billingAsset);
+    item.find('.total-revenue').html(revenDetailed + '<br>' + lastReven + ' ' + window.billingAsset);
     item.find('.total-profit').html(lastProfit + ' ' + window.billingAsset);
 }
 
