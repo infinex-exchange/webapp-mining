@@ -1,4 +1,17 @@
 function renderContract(data, ajaxScr) {
+    var plan = window.plans[data.planid];
+    
+    var name = '';
+    var icons = '';
+    
+    $.each(plan.assets, function(k, v) {
+        if(name != '') name += ' + ';
+        name += v.name;
+        icons += `
+            <img width="24" height="24" src="${v.icon_url}">
+        `;
+    });
+    
     var purchaseDate = '1.1.1.1';
     var endDate = '2.2.2.2';
     var months = 10;
@@ -13,10 +26,9 @@ function renderContract(data, ajaxScr) {
     var currentProfitPerc = '-3';
     var expectedProfit = '90';
     var expectedProfitPerc = '12';
-    var icons = '';
     
     ajaxScr.append(`
-	    <div class="col-12 plan-item" data-contractid="${data.contractid}">
+	    <div class="col-12 contract-item" data-contractid="${data.contractid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
 	                <div class="col-12 pt-2 pb-4">
@@ -184,11 +196,35 @@ function renderContract(data, ajaxScr) {
 }
 
 $(document).ready(function() {
-    window.renderingStagesTarget = 1;
+    window.renderingStagesTarget = 2;
 });
 
 $(document).on('authChecked', function() {
     if(window.loggedIn) {
+        $.ajax({
+        url: config.apiUrl + '/mining/plans',
+        type: 'POST',
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            window.plans = data.plans;
+            window.billingAsset = data.billing_asset;
+            window.billingPrec = data.billing_prec;
+            
+            $(document).trigger('renderingStage');
+        }
+        
+        else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+    });
+    
         window.contractsAS = new AjaxScroll(
             $('#contracts-data'),
             $('#contracts-data-preloader'),
