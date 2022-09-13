@@ -78,7 +78,9 @@ function renderContract(contract, ajaxScr) {
             var divider = dateNow - purchaseDate.getTime();
              
             revenAt = currentRevEquiv.times(multiplier)
-                                         .div(divider);            
+                                         .div(divider);
+            
+            profitAt = revenAt;            
         }
         
         else {
