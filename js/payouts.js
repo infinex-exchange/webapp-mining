@@ -11,7 +11,7 @@ $(document).ready(function() {
 });
 
 $(document).on('authChecked', function() {
-    if(window.logedIn) {
+    if(window.loggedIn) {
         window.payoutsAS = new AjaxScroll(
             $('#payouts-data'),
             $('#payouts-data-preloader'),
