@@ -312,7 +312,7 @@ function renderContract(contract, ajaxScr) {
                             color: '#fff',
                             background: '#775DD0'
                         },
-                        textAnchor: 'middle'
+                        textAnchor: 'start'
                     }
                 }
             ]
