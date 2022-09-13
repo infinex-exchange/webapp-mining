@@ -13,6 +13,7 @@ function renderContract(data, ajaxScr) {
     var currentProfitPerc = '-3';
     var expectedProfit = '90';
     var expectedProfitPerc = '12';
+    var icons = '';
     
     ajaxScr.append(`
 	    <div class="col-12 plan-item" data-contractid="${data.contractid}">
