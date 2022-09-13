@@ -77,12 +77,13 @@ function renderContract(contract, ajaxScr) {
             var multiplier = dateAt - purchaseDate.getTime();
             var divider = dateNow - purchaseDate.getTime();
              
-            var revenAt = currentRevEquiv.times(multiplier)
+            revenAt = currentRevEquiv.times(multiplier)
                                          .div(divider);            
         }
         
         else {
-            //
+            revenAt = '0';
+            profitAt = '0';
         }
         
         revenSeries.push({
