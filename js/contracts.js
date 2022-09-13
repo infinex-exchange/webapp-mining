@@ -12,8 +12,8 @@ function renderContract(contract, ajaxScr) {
         `;
     });
     
-    var purchaseDate = new Date(contract.create_time).toLocaleDateString();
-    var endDate = new Date(contract.end_time).toLocaleDateString();
+    var purchaseDate = new Date(contract.create_time * 1000).toLocaleDateString();
+    var endDate = new Date(contract.end_time * 1000).toLocaleDateString();
     var units = contract.units;
     var unitName = plan.unit_name;
     var dailyRevDetailed = 'ab';
