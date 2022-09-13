@@ -33,4 +33,5 @@
 
 .navbar-mining {
     background-color: var(--color-input) !important;
+    z-index: 999 !important;
 }
