@@ -191,7 +191,9 @@ $(document).on('authChecked', function() {
         window.contractsAS = new AjaxScroll(
             $('#contracts-data'),
             $('#contracts-data-preloader'),
-            {},
+            {
+                api_key: window.apiKey
+            },
                 function() {
                     
                     //---
@@ -201,6 +203,7 @@ $(document).on('authChecked', function() {
                     $.ajax({
                         url: config.apiUrl + '/mining/contracts',
                         type: 'POST',
+                        data: JSON.stringify(thisAS.data),
                         contentType: "application/json",
                         dataType: "json",
                     })
