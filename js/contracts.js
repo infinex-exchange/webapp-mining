@@ -15,7 +15,7 @@ function renderContract(data, ajaxScr) {
     var expectedProfitPerc = '12';
     
     ajaxScr.append(`
-	    <div class="col-12 plan-item" data-contractid="${contractid}">
+	    <div class="col-12 plan-item" data-contractid="${data.contractid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
 	                <div class="col-12 pt-2 pb-4">
