@@ -69,11 +69,12 @@ function renderContract(contract, ajaxScr) {
     endDate = endDate.toLocaleDateString();
     pricePaid = pricePaid.toFixed(window.billingPrec);
     currentProfit = currentProfit.toFixed(window.billingPrec);
-    currentProfitPerc = currentProfitPerc.toFixed(2);
+    
     if(currentProfitPerc.gt(0))
-        expectedProfit = '+' + expectedProfit.toFixed(window.billingPrec);
+        currentProfitPerc = '+' + currentProfitPerc.toFixed(2);
     else
-        expectedProfit = expectedProfit.toFixed(window.billingPrec);
+        currentProfitPerc = currentProfitPerc.toFixed(2);
+    expectedProfit = expectedProfit.toFixed(window.billingPrec);
     if(expectedProfitPerc.gt(0))
         expectedProfitPerc = '+' + expectedProfitPerc.toFixed(2);
     else
