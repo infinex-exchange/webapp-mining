@@ -14,7 +14,7 @@ function renderContract(data) {
     var expectedProfit = '90';
     var expectedProfitPerc = '12';
     
-    return `
+    $('#contracts-data').append(`
 	    <div class="col-12 plan-item" data-contractid="${contractid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
@@ -200,7 +200,7 @@ $(document).on('authChecked', function() {
             window.billingPrec = data.billing_prec;
             
             $.each(data.contracts, function(k, v) {
-                $('#contracts-data').append(renderContract(v));
+               renderContract(v);
             });
             
             $(document).trigger('renderingStage');
