@@ -256,25 +256,30 @@ function renderPlan(planid, data) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 pt-4 pb-2">
-                                <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
+                            <div class="sold-out-wrapper">
+                                <img src="/mining/img/sold_out.png" class="img-fluid">
                             </div>
-                            <div class="col-5 my-auto text-center">
-                                <h3 class="d-inline units"></h3>
-                            </div>
-                            <div class="col-2 my-auto text-center">
-                                <div class="discount-perc-wrapper d-inline rounded py-2 px-2 px-lg-4 bg-red">
-                                    <strong class="discount-perc"></strong>
+                            <div class="buy-wrapper">
+                                <div class="col-12 pt-4 pb-2">
+                                    <input type="range" class="form-range" min="${data.min_ord_units}" max="${data.avbl_units}" step="1" value="${data.min_ord_units}" oninput="recalcPlan(${planid})">
                                 </div>
-                            </div>
-                            <div class="col-5 my-auto text-center">
-                                <h4 class="price-regular secondary crossed-out m-0"></h4>
-                                <h3 class="price-final m-0"></h3>
-                            </div>
-                            <div class="col-7">
-                            </div>
-                            <div class="col-12 col-lg-5 py-4">
-                                ${submitHtml}
+                                <div class="col-5 my-auto text-center">
+                                    <h3 class="d-inline units"></h3>
+                                </div>
+                                <div class="col-2 my-auto text-center">
+                                    <div class="discount-perc-wrapper d-inline rounded py-2 px-2 px-lg-4 bg-red">
+                                        <strong class="discount-perc"></strong>
+                                    </div>
+                                </div>
+                                <div class="col-5 my-auto text-center">
+                                    <h4 class="price-regular secondary crossed-out m-0"></h4>
+                                    <h3 class="price-final m-0"></h3>
+                                </div>
+                                <div class="col-7">
+                                </div>
+                                <div class="col-12 col-lg-5 py-4">
+                                    ${submitHtml}
+                                </div>
                             </div>
                         </div>
 		            </div>
@@ -334,6 +339,12 @@ function renderPlan(planid, data) {
 
     window.charts[planid] = new ApexCharts(item.find('.forecast-chart')[0], options);
     window.charts[planid].render();
+    
+    if(data.dataavbl_units > data.min_ord_units) {
+        item.find('.sold-out-wrapper').addClass('d-none');
+    } else {
+        item.find('.buy-wrapper').addClass('d-none');
+    }
     
     item.find('.form-range').trigger('input');
 }
