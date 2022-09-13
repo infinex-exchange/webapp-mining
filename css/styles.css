@@ -39,3 +39,7 @@
 .navbar-mobile .nav-separ {
     display: none;
 }
+
+.navbar-mining br {
+    display: none;
+}
