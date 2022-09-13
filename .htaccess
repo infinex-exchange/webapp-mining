@@ -1,3 +1,7 @@
 Options -MultiViews -Indexes
 
 RewriteEngine on
+
+RewriteRule ^dashboard/?$ dashboard.php [L]
+RewriteRule ^contracts/?$ contracts.php [L]
+RewriteRule ^payouts/?$ payouts.php [L]
