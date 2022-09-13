@@ -14,6 +14,7 @@
         
         <!-- Navbar -->
         <?php include('../../templates/navbar.php'); ?>
+        <?php include('/templates/navbar.php'); ?>
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 h-rest pt-2 p-0">

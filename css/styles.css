@@ -28,3 +28,9 @@
         background-repeat: no-repeat;
     }
 }
+
+/* Navbar */
+
+.navbar-mining {
+    background-color: var(--color-input) !important;
+}
