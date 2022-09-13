@@ -257,7 +257,7 @@ function renderPlan(planid, data) {
                                 </div>
                             </div>
                             <div class="sold-out-wrapper">
-                                <div class="col-8 mx-auto pt-4">
+                                <div class="col-8 col-lg-6 mx-auto pt-4">
                                     <img src="/mining/img/sold_out.png" class="img-fluid">
                                 </div>
                             </div>
