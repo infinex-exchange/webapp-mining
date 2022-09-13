@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../../templates/head.php'); ?>
+        <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../../js/ajax_scroll.js'); ?>"></script>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <title>My contracts | Vayamos Mining</title>
     </head>
