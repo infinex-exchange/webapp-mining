@@ -16,13 +16,14 @@ function renderContract(contract, ajaxScr) {
     var endDate = new Date(contract.end_time * 1000).toLocaleDateString();
     var units = contract.units;
     var unitName = plan.unit_name;
+    var pricePaid = contract.price_paid;
+    
     var dailyRevDetailed = 'ab';
     var dailyRevEquiv = '10';
     var currentRevDetailed = 'as';
     var currentRevEquiv = '34';
     var expectedRevDetailed = 'ag';
     var expectedRevEquiv = '50';
-    var pricePaid = '1.1';
     var currentProfit = '10';
     var currentProfitPerc = '-3';
     var expectedProfit = '90';
