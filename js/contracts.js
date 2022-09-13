@@ -305,8 +305,6 @@ function renderContract(contract, ajaxScr) {
             xaxis: [
                 {
                     x: new Date().getTime(),
-                    borderColor: '#999',
-                    yAxisIndex: 0,
                     label: {
                         show: true,
                         text: 'Today',
