@@ -201,12 +201,10 @@ function renderContract(contract, ajaxScr) {
 	    </div>
 	`);
     
-    /*var labels = new Array();
-    for(var i = 0; i <= data.months; i++)
-        labels.push(i);
+    var series = [];
     
     var options = {
-        series: [],
+        series: series,
         chart: {
             height: 300,
             type: 'area',
@@ -242,12 +240,9 @@ function renderContract(contract, ajaxScr) {
 	    }
     };
     
-    var item = $('.plan-item[data-planid="' + planid + '"]');
-
-    window.charts[planid] = new ApexCharts(item.find('.forecast-chart')[0], options);
-    window.charts[planid].render();
-    
-    item.find('.form-range').trigger('input');*/
+    var item = $('.contract-item[data-contractid="' + contract.contractid + '"]');
+    var chart = new ApexCharts(item.find('.forecast-chart')[0], options);
+    chart.render();
 }
 
 $(document).ready(function() {
