@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse">   
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#_">
+                    <a class="nav-link auto-active" href="#_">
                         Buy a plan
                     </a>
                 </li>
@@ -13,7 +13,7 @@
                 </li>
 
                 <li class="nav-item dropdown dropdown-on-hover">
-                    <a class="nav-link" href="#_">
+                    <a class="nav-link auto-active" href="#_">
                         Dashboard
                     </a>
                 </li>
