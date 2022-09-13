@@ -21,7 +21,7 @@ function renderContract(contract, ajaxScr) {
     var daysNow = Math.round((new Date().getTime() - purchaseDate.getTime()) / (1000 * 3600 * 24));
     var daysTotal = Math.round((endDate.getTime() - purchaseDate.getTime()) / (1000 * 3600 * 24));
     
-    var dailyRevDetailed = null;
+    var dailyRevDetailed = '';
     var dailyNative = new Object();
     var dailyRevEquiv = new BigNumber(0);
     $.each(plan.assets, function(k, v) {
