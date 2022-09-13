@@ -82,8 +82,8 @@ function renderContract(contract, ajaxScr) {
         }
         
         else {
-            revenAt = '0';
-            profitAt = '0';
+            revenAt = new BigNumber(1);
+            profitAt = new BigNumber(1);
         }
         
         revenSeries.push({
