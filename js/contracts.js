@@ -310,9 +310,9 @@ function renderContract(contract, ajaxScr) {
                         text: 'Today',
                         style: {
                             color: '#fff',
-                            background: '#775DD0',
-                            position: 'right'
-                        }
+                            background: '#775DD0'
+                        },
+                        position: 'right'
                     }
                 }
             ]
