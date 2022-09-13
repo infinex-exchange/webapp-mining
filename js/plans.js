@@ -293,10 +293,6 @@ function renderPlan(planid, data) {
 	    </div>
 	`);
     
-    var labels = new Array();
-    for(var i = 0; i <= data.months; i++)
-        labels.push(i);
-    
     var options = {
         series: [],
         chart: {
