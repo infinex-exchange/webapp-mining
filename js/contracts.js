@@ -68,7 +68,7 @@ function renderContract(contract, ajaxScr) {
         dateAt.setMonth(dateAt.getMonth() + month);
         
         dateNow = dateNow.getTime();
-        dateAt = dateNow().getTime();
+        dateAt = dateAt.getTime();
         
         var revenAt = null;
         var profitAt = null;
