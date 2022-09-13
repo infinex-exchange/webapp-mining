@@ -4,7 +4,7 @@ function renderContract(contract, ajaxScr) {
     var name = '';
     var icons = '';
     
-    $.each(contract.assets, function(k, v) {
+    $.each(plan.assets, function(k, v) {
         if(name != '') name += ' + ';
         name += v.name;
         icons += `
