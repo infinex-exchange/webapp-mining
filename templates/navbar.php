@@ -27,6 +27,16 @@
                         My contracts
                     </a>
                 </li>
+                
+                <li class="nav-item">
+                    <span class="nav-link">&bull;</span>
+                </li>
+
+                <li class="nav-item dropdown dropdown-on-hover">
+                    <a class="nav-link auto-active" href="/mining/payouts">
+                        Payouts
+                    </a>
+                </li>
             </ul>
         </div> 
     </div>
