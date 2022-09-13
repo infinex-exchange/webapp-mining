@@ -130,16 +130,21 @@ function recalcPlan(planid) {
     // Summary
     
     var revenDetailed = '';
+    var dailyDetailed = '';
     
     $.each(dailyNative, function(k, v) {
+        dailyDetailed += v.toFixed(window.plans[planid].assets[k].prec)
+                      + ' ' + k + '<br>';
+        
         var totalRevenThis = v.times(days);
         revenDetailed += totalRevenThis.toFixed(window.plans[planid].assets[k].prec)
                       + ' ' + k + '<br>';
     });
     
     item.find('.time-period').html(window.plans[planid].months + ' months');
+    item.find('.daily-revenue-detailed').html(dailyDetailed);
     item.find('.total-revenue-detailed').html(revenDetailed);
-    item.find('.total-revenue-equiv').html(lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset);
+    item.find('.total-revenue-equiv').html('(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')');
     item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     var roi = lastProfit.div(priceFinal).times(100).toFixed(2);
@@ -237,11 +242,14 @@ function renderPlan(planid, data) {
                                         </h4>
                                     </div>
                                     
-                                    <div class="col-12">
-                                        <span class="total-revenue-detailed"></span>
-                                        (<i class="total-revenue-equiv"></i>)
+                                    <div class="col-4">
+                                        <span class="daily-revenue-detailed"></span>
                                     </div>
-                                    <div class="col-6 pb-4">
+                                    <div class="col-4">
+                                        <span class="total-revenue-detailed"></span>
+                                        <i class="small total-revenue-equiv"></i>
+                                    </div>
+                                    <div class="col-4">
                                         <span class="total-profit"></span>
                                     </div>
                                 </div>
