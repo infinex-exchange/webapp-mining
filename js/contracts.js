@@ -53,8 +53,9 @@ function renderContract(contract, ajaxScr) {
         currentRevEquiv = currentRevEquiv.plus(currentEquivThis);
     });
     
-    var currentProfit = '10';
-    var currentProfitPerc = '-3';
+    var currentProfit = currentRevEquiv.minus(pricePaid);
+    var currentProfitPerc = currentProfit.div(pricePaid).times(100);
+    
     var expectedProfit = '90';
     var expectedProfitPerc = '12';
     
@@ -67,6 +68,8 @@ function renderContract(contract, ajaxScr) {
     purchaseDate = purchaseDate.toLocaleDateString();
     endDate = endDate.toLocaleDateString();
     pricePaid = pricePaid.toFixed(window.billingPrec);
+    currentProfit = currentProfit.toFixed(window.billingPrec);
+    currentProfitPerc = currentProfitPerc.toFixed(2);
     
     ajaxScr.append(`
 	    <div class="col-12 contract-item" data-contractid="${contract.contractid}">
