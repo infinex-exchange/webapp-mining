@@ -308,6 +308,10 @@ function renderContract(contract, ajaxScr) {
                     label: {
                         show: true,
                         text: 'Today',
+                        style: {
+                            color: '#fff',
+                            background: '#775DD0'
+                        }
                     }
                 }
             ]
