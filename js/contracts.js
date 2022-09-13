@@ -12,14 +12,30 @@ function renderContract(contract, ajaxScr) {
         `;
     });
     
-    var purchaseDate = new Date(contract.create_time * 1000).toLocaleDateString();
-    var endDate = new Date(contract.end_time * 1000).toLocaleDateString();
+    var purchaseDate = new Date(contract.create_time * 1000);
+    var endDate = new Date(contract.end_time * 1000);
     var units = contract.units;
     var unitName = plan.unit_name;
-    var pricePaid = contract.price_paid;
+    var pricePaid = new BigNumber(contract.price_paid);
     
-    var dailyRevDetailed = 'ab';
-    var dailyRevEquiv = '10';
+    var daysNow = Math.round((new Date().getTime() - purchaseDate.getTime()) / (1000 * 3600 * 24));
+    var daysTotal = Math.round((endDate.getTime() - purchaseDate.getTime()) / (1000 * 3600 * 24));
+    
+    var dailyRevDetailed = null;
+    var dailyNative = new Object();
+    var dailyRevEquiv = new BigNumber(0);
+    $.each(plan.assets, function(k, v) {
+        var dailyNativeThis = new BigNumber(v.unit_avg_revenue);
+        dailyNativeThis = dailyNativeThis.times(units);
+        dailyNative[k] = dailyNativeThis;
+        
+        var dailyEquivThis = dailyNativeThis.times(v.asset_price_avg);
+        dailyRevEquiv = dailyRevEquiv.plus(dailyMasterThis);
+        
+        dailyRevDetailed += dailyNativeThis.toFixed(v.prec)
+                         + ' ' + k + '<br>';
+    });
+    
     var currentRevDetailed = 'as';
     var currentRevEquiv = '34';
     var expectedRevDetailed = 'ag';
@@ -28,6 +44,12 @@ function renderContract(contract, ajaxScr) {
     var currentProfitPerc = '-3';
     var expectedProfit = '90';
     var expectedProfitPerc = '12';
+    
+    // dailyRevDetailed
+    dailyRevEquiv = dailyRevEquiv.toFixed(window.billingPrec);
+    purchaseDate = purchaseDate.toLocaleDateString();
+    endDate = endDate.toLocaleDateString();
+    pricePaid = pricePaid.toFixed(window.billingPrec);
     
     ajaxScr.append(`
 	    <div class="col-12 contract-item" data-contractid="${contract.contractid}">
