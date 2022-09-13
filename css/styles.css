@@ -36,7 +36,7 @@
     z-index: 999 !important;
 }
 
-.navbar-mobile .nav-separ {
+.navbar-mobile .nav-separ, .sidebar .nav-separ {
     display: none;
 }
 
