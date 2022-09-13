@@ -143,6 +143,7 @@ function recalcPlan(planid) {
     
     item.find('.time-period').html(window.plans[planid].months + ' months');
     item.find('.daily-revenue-detailed').html(dailyDetailed);
+    item.find('.daily-revenue-equiv').html('(' + dailyMasterTotal.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')');
     item.find('.total-revenue-detailed').html(revenDetailed);
     item.find('.total-revenue-equiv').html('(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')');
     item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
@@ -244,6 +245,7 @@ function renderPlan(planid, data) {
                                     
                                     <div class="col-4">
                                         <span class="daily-revenue-detailed"></span>
+                                        <i class="small daily-revenue-equiv"></i>
                                     </div>
                                     <div class="col-4">
                                         <span class="total-revenue-detailed"></span>
