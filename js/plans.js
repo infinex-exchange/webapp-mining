@@ -91,6 +91,7 @@ function recalcPlan(planid) {
     var lastReven = null;
     var lastProfit = null;
     var returnAfter = 0;
+    var returnDate = null;
     
     for(var month = 0; month <= window.plans[planid].months; month++) {
         var dateNow = new Date();
@@ -102,8 +103,10 @@ function recalcPlan(planid) {
         lastProfit = dailyMasterTotal.times(days)
                                      .minus(priceFinal);
         
-        if(returnAfter == 0 && lastProfit.gt(0))
+        if(returnAfter == 0 && lastProfit.gt(0)) {
             returnAfter = days;
+            returnDate = dateFuture.getTime();
+        }
         
         revenSeries.push({
             x: dateFuture.getTime(),
@@ -126,6 +129,22 @@ function recalcPlan(planid) {
             data: profitSeries
         }
     ], true);
+    
+    if(returnDate != null) {
+	    window.charts[planid].clearAnnotations();
+	    window.charts[planid].addXaxisAnnotation({
+	        x: new Date().getTime(),
+	        label: {
+	            show: true,
+	            text: 'Return',
+	            style: {
+		            color: '#fff',
+		            background: '#775DD0'
+		        },
+		        textAnchor: 'start'
+	        }
+	    });
+    }
     
     // Summary
     
