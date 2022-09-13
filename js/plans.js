@@ -133,7 +133,7 @@ function recalcPlan(planid) {
     if(returnDate != null) {
 	    window.charts[planid].clearAnnotations();
 	    window.charts[planid].addXaxisAnnotation({
-	        x: new Date().getTime(),
+	        x: returnDate,
 	        label: {
 	            show: true,
 	            text: 'Return',
