@@ -80,7 +80,7 @@ function renderContract(contract, ajaxScr) {
             revenAt = currentRevEquiv.times(multiplier)
                                          .div(divider);
             
-            profitAt = revenAt;            
+            profitAt = revenAt.minus(pricePaid);            
         }
         
         else {
