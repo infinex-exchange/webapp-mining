@@ -46,7 +46,7 @@ $(document).on('authChecked', function() {
                 .done(function (data) {
                     if(data.success) {
                         $.each(data.payouts, function() {
-                            thisAS.append(renderTxHistoryItem(this));
+                            thisAS.append(renderPayoutItem(this));
                         });
                         
                         thisAS.done();
