@@ -62,6 +62,8 @@ function renderContract(contract, ajaxScr) {
     var revenSeries = new Array();
     var profitSeries = new Array();
     
+    var returnDate = null;
+    
     for(var month = 0; month <= plan.months; month++) {
         var dateNow = new Date();
         var dateAt = new Date(purchaseDate);
@@ -100,6 +102,9 @@ function renderContract(contract, ajaxScr) {
         }
         
         var profitAt = revenAt.minus(pricePaid);       
+        
+        if(returnDate == null && profitAt.gt(0))
+            returnDate = dateAt;
         
         revenSeries.push({
             x: dateAt,
@@ -308,6 +313,18 @@ function renderContract(contract, ajaxScr) {
                     label: {
                         show: true,
                         text: 'Now',
+                        style: {
+                            color: '#fff',
+                            background: '#775DD0'
+                        },
+                        textAnchor: 'start'
+                    }
+                },
+                {
+                    x: returnDate,
+                    label: {
+                        show: true,
+                        text: 'Return',
                         style: {
                             color: '#fff',
                             background: '#775DD0'
