@@ -70,8 +70,14 @@ function renderContract(contract, ajaxScr) {
     pricePaid = pricePaid.toFixed(window.billingPrec);
     currentProfit = currentProfit.toFixed(window.billingPrec);
     currentProfitPerc = currentProfitPerc.toFixed(2);
-    expectedProfit = expectedProfit.toFixed(window.billingPrec);
-    expectedProfitPerc = expectedProfitPerc.toFixed(2);
+    if(currentProfitPerc.gt(0))
+        expectedProfit = '+' + expectedProfit.toFixed(window.billingPrec);
+    else
+        expectedProfit = expectedProfit.toFixed(window.billingPrec);
+    if(expectedProfitPerc.gt(0))
+        expectedProfitPerc = '+' + expectedProfitPerc.toFixed(2);
+    else
+        expectedProfitPerc = expectedProfitPerc.toFixed(2);
     
     ajaxScr.append(`
 	    <div class="col-12 contract-item" data-contractid="${contract.contractid}">
