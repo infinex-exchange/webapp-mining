@@ -41,8 +41,18 @@ function renderContract(contract, ajaxScr) {
     });
     var expectedRevEquiv = dailyRevEquiv.times(daysTotal);
     
-    var currentRevDetailed = 'as';
-    var currentRevEquiv = '34';
+    var currentRevDetailed = '';
+    var currentRevEquiv = new BigNumber(0);
+    $.each(contract.revenue, function(k, v) {
+        var currentNativeThis = new BigNumber(v);
+        
+        currentRevDetailed += currentNativeThis.toFixed(plan.assets[k].prec)
+                           + ' ' + k + '<br>';
+        
+        var currentEquivThis = currentNativeThis.times(plan.assets[k].asset_price_avg);;
+        currentRevEquiv = currentRevEquiv.plus(currentEquivThis);
+    });
+    
     var currentProfit = '10';
     var currentProfitPerc = '-3';
     var expectedProfit = '90';
@@ -52,6 +62,8 @@ function renderContract(contract, ajaxScr) {
     dailyRevEquiv = dailyRevEquiv.toFixed(window.billingPrec);
     // expectedRevDetailed
     expectedRevEquiv = expectedRevEquiv.toFixed(window.billingPrec);
+    // currentRevDetailed
+    currentRevEquiv = currentRevEquiv.toFixed(window.billingPrec);
     purchaseDate = purchaseDate.toLocaleDateString();
     endDate = endDate.toLocaleDateString();
     pricePaid = pricePaid.toFixed(window.billingPrec);
