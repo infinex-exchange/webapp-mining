@@ -311,8 +311,7 @@ function renderContract(contract, ajaxScr) {
                         style: {
                             color: '#fff',
                             background: '#775DD0'
-                        },
-                        textAnchor: 'start'
+                        }
                     }
                 }
             ]
