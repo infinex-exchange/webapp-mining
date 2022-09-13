@@ -30,7 +30,7 @@ function renderContract(contract, ajaxScr) {
         dailyNative[k] = dailyNativeThis;
         
         var dailyEquivThis = dailyNativeThis.times(v.asset_price_avg);
-        dailyRevEquiv = dailyRevEquiv.plus(dailyMasterThis);
+        dailyRevEquiv = dailyRevEquiv.plus(dailyEquivThis);
         
         dailyRevDetailed += dailyNativeThis.toFixed(v.prec)
                          + ' ' + k + '<br>';
