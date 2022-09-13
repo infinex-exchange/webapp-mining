@@ -14,7 +14,7 @@
         
         <!-- Navbar -->
         <?php include('../../templates/navbar.php'); ?>
-        <?php include(__DIR__.'/templates/navbar.html'); ?>
+        <?php include(__DIR__.'/templates/navbar.php'); ?>
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 h-rest pt-2 p-0">
@@ -102,7 +102,7 @@
         
         <!-- Footer -->
         <?php include('../../templates/footer.html'); ?>
-        <?php include(__DIR__.'/templates/mobile_nav.html'); ?>
+        <?php include(__DIR__.'/templates/mobile_nav.php'); ?>
     
     </body>
 </html>
