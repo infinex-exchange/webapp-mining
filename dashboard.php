@@ -12,16 +12,14 @@
         
         <!-- Navbar -->
         <?php include('../../templates/navbar.php'); ?>
+        <?php include(__DIR__.'/templates/navbar.php'); ?>
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 container-rest p-0 user-only">
         <div class="row m-0 h-rest">
         
-        <!-- Left column -->
-        <?php include(__DIR__.'/templates/sidebar.php'); ?>
-        
         <!-- Main column -->
-        <div class="col-12 col-lg-8 p-0 ui-card ui-column">
+        <div class="col-12 p-0 ui-card ui-column">
             
             <div class="row p-2">
                 <h3>Dashboard</h3>
