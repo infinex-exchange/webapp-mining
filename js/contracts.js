@@ -18,12 +18,13 @@ function renderContract(contract, ajaxScr) {
     var unitName = plan.unit_name;
     var pricePaid = new BigNumber(contract.price_paid);
     
-    var daysNow = Math.round((new Date().getTime() - purchaseDate.getTime()) / (1000 * 3600 * 24));
+    //var daysNow = Math.round((new Date().getTime() - purchaseDate.getTime()) / (1000 * 3600 * 24));
     var daysTotal = Math.round((endDate.getTime() - purchaseDate.getTime()) / (1000 * 3600 * 24));
     
     var dailyRevDetailed = '';
     var dailyNative = new Object();
     var dailyRevEquiv = new BigNumber(0);
+    var expectedRevDetailed = '';
     $.each(plan.assets, function(k, v) {
         var dailyNativeThis = new BigNumber(v.unit_avg_revenue);
         dailyNativeThis = dailyNativeThis.times(units);
@@ -34,12 +35,14 @@ function renderContract(contract, ajaxScr) {
         
         dailyRevDetailed += dailyNativeThis.toFixed(v.prec)
                          + ' ' + k + '<br>';
+        
+        expectedRevDetailed += dailyNativeThis.times(daysTotal).toFixed(v.prec)
+                            + ' ' + k + '<br>';
     });
+    var expectedRevEquiv = dailyRevEquiv.times(daysTotal);
     
     var currentRevDetailed = 'as';
     var currentRevEquiv = '34';
-    var expectedRevDetailed = 'ag';
-    var expectedRevEquiv = '50';
     var currentProfit = '10';
     var currentProfitPerc = '-3';
     var expectedProfit = '90';
@@ -47,6 +50,8 @@ function renderContract(contract, ajaxScr) {
     
     // dailyRevDetailed
     dailyRevEquiv = dailyRevEquiv.toFixed(window.billingPrec);
+    // expectedRevDetailed
+    expectedRevEquiv = expectedRevEquiv.toFixed(window.billingPrec);
     purchaseDate = purchaseDate.toLocaleDateString();
     endDate = endDate.toLocaleDateString();
     pricePaid = pricePaid.toFixed(window.billingPrec);
