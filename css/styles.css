@@ -37,9 +37,9 @@
 }
 
 .navbar-mobile .nav-separ, .sidebar .nav-separ {
-    display: none;
+    display: none !important;
 }
 
 .navbar-mining br, .sidebar br {
-    display: none;
+    display: none !important;
 }
