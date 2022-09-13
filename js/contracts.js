@@ -56,8 +56,8 @@ function renderContract(contract, ajaxScr) {
     var currentProfit = currentRevEquiv.minus(pricePaid);
     var currentProfitPerc = currentProfit.div(pricePaid).times(100);
     
-    var expectedProfit = '90';
-    var expectedProfitPerc = '12';
+    var expectedProfit = expectedRevEquiv.minus(pricePaid);
+    var expectedProfitPerc = expectedProfit.div(pricePaid).times(100);
     
     // dailyRevDetailed
     dailyRevEquiv = dailyRevEquiv.toFixed(window.billingPrec);
@@ -70,6 +70,8 @@ function renderContract(contract, ajaxScr) {
     pricePaid = pricePaid.toFixed(window.billingPrec);
     currentProfit = currentProfit.toFixed(window.billingPrec);
     currentProfitPerc = currentProfitPerc.toFixed(2);
+    expectedProfit = expectedProfit.toFixed(window.billingPrec);
+    expectedProfitPerc = expectedProfitPerc.toFixed(2);
     
     ajaxScr.append(`
 	    <div class="col-12 contract-item" data-contractid="${contract.contractid}">
@@ -165,10 +167,12 @@ function renderContract(contract, ajaxScr) {
                                     </div>
                                     <div class="col-4 pb-4">
                                         ${currentProfit} ${window.billingAsset}
+                                        <br>
                                         <i class="small">(${currentProfitPerc}%)</i>
                                     </div>
                                     <div class="col-4 pb-4">
                                         ${expectedProfit} ${window.billingAsset}
+                                        <br>
                                         <i class="small">(${expectedProfitPerc}%)</i>
                                     </div>
                                 </div>
