@@ -13,7 +13,7 @@ function renderPayoutItem(data) {
                 ${data.amount}
             </div>
             <div class="col-12 col-lg-3 text-end">
-                ${data.units_owned} {data.unit_name}
+                ${data.units_owned} ${data.unit_name}
             </div>
         </div>
     `;
