@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-mining navbar-dark shadow-sm navbar-expand-lg">
+<nav class="navbar sticky-top navbar-mining navbar-dark shadow-sm navbar-expand-lg d-none d-lg-flex">
     <div class="container-fluid container-1500">
         <div class="collapse navbar-collapse">   
             <ul class="navbar-nav">
