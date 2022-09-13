@@ -7,6 +7,10 @@
                         Buy a plan
                     </a>
                 </li>
+                
+                <li class="nav-item">
+                    <span class="nav-link">·</span>
+                </li>
 
                 <li class="nav-item dropdown dropdown-on-hover">
                     <a class="nav-link" href="#_">
