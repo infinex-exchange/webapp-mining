@@ -27,16 +27,16 @@
             </div>
             
             <div class="row p-2 secondary d-none d-lg-flex">
-                <div style="width: 25%">
+                <div class="col-3">
                     <h5>Date</h5>
                 </div>
-                <div style="width: 25%">
+                <div class="col-3">
                     <h5>Asset</h5>
                 </div>
-                <div class="text-end" style="width: 25%">
+                <div class="col-3 text-end">
                     <h5>Amount</h5>
                 </div>
-                <div class="text-end" style="width: 25%">
+                <div class="col-3 text-end">
                     <h5>Power</h5>
                 </div>
             </div>

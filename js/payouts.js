@@ -9,10 +9,10 @@ function renderPayoutItem(data) {
             <div class="col-12 col-lg-3">
                 ${data.assetid}
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-lg-3 text-end">
                 ${data.amount}
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-lg-3 text-end">
                 ${data.units_owned}
             </div>
         </div>
@@ -54,7 +54,7 @@ $(document).on('authChecked', function() {
                         if(thisAS.offset == 0)
                             $(document).trigger('renderingStage');
                             
-                        if(data.transactions.length != 50)
+                        if(data.payouts.length != 50)
                             thisAS.noMoreData();
                     }
                     else {
