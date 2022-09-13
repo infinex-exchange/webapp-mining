@@ -71,22 +71,35 @@ function renderContract(contract, ajaxScr) {
         dateAt = dateAt.getTime();
         
         var revenAt = null;
-        var profitAt = null;
         
         if(dateAt < dateNow) {
+            // (dateNow - purchaseDate)    ->    currentRevEquiv
+            // (dateAt - purchaseDate)     ->    x
+            // x = (dateAt - purchaseDate) * currentRevEquiv / (dateNow - purchaseDate)
+            
             var multiplier = dateAt - purchaseDate.getTime();
             var divider = dateNow - purchaseDate.getTime();
              
             revenAt = currentRevEquiv.times(multiplier)
-                                         .div(divider);
-            
-            profitAt = revenAt.minus(pricePaid);            
+                                         .div(divider);     
         }
         
         else {
-            revenAt = new BigNumber(1);
-            profitAt = new BigNumber(1);
+            // (endDate - purchaseDate)    ->    (expectedRevEquiv - currentRevEquiv)
+            // (dateAt - purchaseDate)     ->    (x - currentRevEquiv)
+            // x - currentRevEquiv = (dateAt - purchaseDate) * (expectedRevEquiv - currentRevEquiv) / (endDate - purchaseDate)
+            // x = ((dateAt - purchaseDate) * (expectedRevEquiv - currentRevEquiv) / (endDate - purchaseDate)) + currentRevEquiv
+            
+            var mulA = new BigNumber(dateAt - purchaseDate.getTime());
+            var mulB = expectedRevEquiv.minus(currentRevEquiv);
+            var divider = endDate.getTime() - purchaseDate.getTime();
+            
+            revenAt = mulA.times(mulB)
+                          .div(divider)
+                          .plus(currentRevEquiv); 
         }
+        
+        var profitAt = revenAt.minus(pricePaid);       
         
         revenSeries.push({
             x: dateAt,
