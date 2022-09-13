@@ -40,6 +40,6 @@
     display: none;
 }
 
-.navbar-mining br {
+.navbar-mining br, .sidebar br {
     display: none;
 }
