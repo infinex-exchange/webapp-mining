@@ -1,10 +1,10 @@
-function renderContract(data, ajaxScr) {
-    var plan = window.plans[data.planid];
+function renderContract(contract, ajaxScr) {
+    var plan = window.plans[contract.planid];
     
     var name = '';
     var icons = '';
     
-    $.each(plan.assets, function(k, v) {
+    $.each(contract.assets, function(k, v) {
         if(name != '') name += ' + ';
         name += v.name;
         icons += `
@@ -12,9 +12,10 @@ function renderContract(data, ajaxScr) {
         `;
     });
     
-    var purchaseDate = '1.1.1.1';
-    var endDate = '2.2.2.2';
-    var months = 10;
+    var purchaseDate = new Date(contract.create_time).toLocaleDateString();
+    var endDate = new Date(contract.end_time).toLocaleDateString();
+    var units = contract.units;
+    var unitName = plan.unit_name;
     var dailyRevDetailed = 'ab';
     var dailyRevEquiv = '10';
     var currentRevDetailed = 'as';
@@ -28,7 +29,7 @@ function renderContract(data, ajaxScr) {
     var expectedProfitPerc = '12';
     
     ajaxScr.append(`
-	    <div class="col-12 contract-item" data-contractid="${data.contractid}">
+	    <div class="col-12 contract-item" data-contractid="${contract.contractid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
 	                <div class="col-12 pt-2 pb-4">
@@ -57,7 +58,7 @@ function renderContract(data, ajaxScr) {
                                     </div>
                                     <div class="col-4">
                                         <h4 class="secondary">
-                                            Time period
+                                            Power
                                         </h4>
                                     </div>
                                     
@@ -68,7 +69,7 @@ function renderContract(data, ajaxScr) {
                                         ${endDate}
                                     </div>
                                     <div class="col-4 pb-4">
-                                        ${months} months
+                                        ${units} ${unitName}
                                     </div>
                                     
                                     <div class="col-4">
@@ -250,9 +251,6 @@ $(document).on('plansFetched', function() {
                     .retry(config.retry)
                     .done(function (data) {
                         if(data.success) {
-                            window.billingAsset = data.billing_asset;
-                            window.billingPrec = data.billing_prec;
-                            
                             $.each(data.contracts, function(k, v) {
                                renderContract(v, thisAS);
                             });
