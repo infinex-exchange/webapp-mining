@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse">   
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link auto-active" href="#_">
+                    <a class="nav-link auto-active" href="/mining">
                         Buy a plan
                     </a>
                 </li>
@@ -13,8 +13,18 @@
                 </li>
 
                 <li class="nav-item dropdown dropdown-on-hover">
-                    <a class="nav-link auto-active" href="#_">
+                    <a class="nav-link auto-active" href="/mining/dashboard">
                         Dashboard
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <span class="nav-link">&bull;</span>
+                </li>
+
+                <li class="nav-item dropdown dropdown-on-hover">
+                    <a class="nav-link auto-active" href="/mining/contracts">
+                        My contracts
                     </a>
                 </li>
             </ul>
