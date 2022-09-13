@@ -300,7 +300,18 @@ function renderContract(contract, ajaxScr) {
         },
         theme: {
 	        mode: 'dark'
-	    }
+	    },
+        annotations: {
+            xaxis: [
+                {
+                    x: new Date().getTime(),
+                    label: {
+                        show: true,
+                        text: 'Today',
+                    }
+                }
+            ]
+        }
     };
     
     var item = $('.contract-item[data-contractid="' + contract.contractid + '"]');
