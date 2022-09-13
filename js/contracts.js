@@ -214,7 +214,7 @@ $(document).on('authChecked', function() {
                 window.billingAsset = data.billing_asset;
                 window.billingPrec = data.billing_prec;
                 
-                $(document).trigger('renderingStage plansFetched');
+                $(document).trigger('renderingStage').trigger('plansFetched');
             }
             
             else {
