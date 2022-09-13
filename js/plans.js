@@ -195,62 +195,55 @@ function renderPlan(planid, data) {
                         <div class="row">
                             <div class="col-12 py-4">
                                 <div class="row">
-                                    <div class="col-8">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <h4 class="secondary">
-                                                    Time period
-                                                </h4>
-                                            </div>
-                                            <div class="col-6">
-                                                <h4 class="secondary">
-                                                    Total profit
-                                                </h4>
-                                            </div>
-                                            
-                                            <div class="col-6 pb-4">
-                                                <span class="time-period"></span>
-                                            </div>
-                                            <div class="col-6 pb-4">
-                                                <span class="total-profit"></span>
-                                            </div>
-                                            
-                                            <div class="col-6 mt-auto">
-                                                <h4 class="secondary">
-                                                    ROI
-                                                </h4>
-                                            </div>
-                                            <div class="col-6 mt-auto">
-                                                <h4 class="secondary">
-                                                    Return after
-                                                </h4>
-                                            </div>
-                                            
-                                            <div class="col-6">
-                                                <span class="roi"></span>
-                                            </div>
-                                            <div class="col-6">
-                                                <span class="return-after"></span>
-                                            </div>
-                                        </div>
+                                    <div class="col-4">
+                                        <h4 class="secondary">
+                                            Time period
+                                        </h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <h4 class="secondary">
+                                            Return after
+                                        </h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <h4 class="secondary">
+                                            ROI
+                                        </h4>
+                                    </div>
+                                    
+                                    <div class="col-4 pb-4">
+                                        <span class="time-period"></span>
+                                    </div>
+                                    <div class="col-4 pb-4">
+                                        <span class="return-after"></span>
+                                    </div>
+                                    <div class="col-4 pb-4">
+                                        <span class="roi"></span>
                                     </div>
                                     
                                     <div class="col-4">
-                                        <div class="row h-100">
-                                            <div class="col-12">
-                                                <h4 class="secondary">
-                                                    Total revenue
-                                                </h4>
-                                            </div>
-                                            <div class="col-12">
-                                                <span class="total-revenue-detailed"></span>
-                                            </div>
-                                            <div class="col-12 mt-auto">
-                                                (<i class="total-revenue-equiv"></i>)
-                                            </div>
-                                        </div>
+                                        <h4 class="secondary">
+                                            Daily revenue
+                                        </h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <h4 class="secondary">
+                                            Total revenue
+                                        </h4>
+                                    </div>
+                                    <div class="col-4">
+                                        <h4 class="secondary">
+                                            Total profit
+                                        </h4>
                                     </div>
                                     
+                                    <div class="col-12">
+                                        <span class="total-revenue-detailed"></span>
+                                        (<i class="total-revenue-equiv"></i>)
+                                    </div>
+                                    <div class="col-6 pb-4">
+                                        <span class="total-profit"></span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12 pt-4 pb-2">
