@@ -307,7 +307,7 @@ function renderContract(contract, ajaxScr) {
                     x: new Date().getTime(),
                     label: {
                         show: true,
-                        text: 'Today',
+                        text: 'Now',
                         style: {
                             color: '#fff',
                             background: '#775DD0'
