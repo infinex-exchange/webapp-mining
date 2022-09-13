@@ -62,7 +62,7 @@ function renderContract(contract, ajaxScr) {
     var revenSeries = new Array();
     var profitSeries = new Array();
     
-    for(var month = 0; month <= window.plans[planid].months; month++) {
+    for(var month = 0; month <= plan.months; month++) {
         var dateNow = new Date();
         var dateAt = new Date(purchaseDate);
         dateAt.setMonth(dateAt.getMonth() + month);
