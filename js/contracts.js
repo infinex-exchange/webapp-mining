@@ -1,4 +1,4 @@
-function renderContract(data) {
+function renderContract(data, ajaxScr) {
     var purchaseDate = '1.1.1.1';
     var endDate = '2.2.2.2';
     var months = 10;
@@ -14,7 +14,7 @@ function renderContract(data) {
     var expectedProfit = '90';
     var expectedProfitPerc = '12';
     
-    $('#contracts-data').append(`
+    ajaxScr.append(`
 	    <div class="col-12 plan-item" data-contractid="${contractid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
@@ -187,30 +187,59 @@ $(document).ready(function() {
 });
 
 $(document).on('authChecked', function() {
-    $.ajax({
-        url: config.apiUrl + '/mining/contracts',
-        type: 'POST',
-        contentType: "application/json",
-        dataType: "json",
-    })
-    .retry(config.retry)
-    .done(function (data) {
-        if(data.success) {
-            window.billingAsset = data.billing_asset;
-            window.billingPrec = data.billing_prec;
-            
-            $.each(data.contracts, function(k, v) {
-               renderContract(v);
-            });
-            
-            $(document).trigger('renderingStage');
-        }
+    if(window.loggedIn) {
+        window.contractsAS = new AjaxScroll(
+            $('#contracts-data'),
+            $('#contracts-data-preloader'),
+            {},
+                function() {
+                    
+                    //---
+                    this.data.offset = this.offset;
+                    var thisAS = this;
         
-        else {
-            msgBoxRedirect(data.error);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(true);
-    });
+                    $.ajax({
+                        url: config.apiUrl + '/mining/contracts',
+                        type: 'POST',
+                        contentType: "application/json",
+                        dataType: "json",
+                    })
+                    .retry(config.retry)
+                    .done(function (data) {
+                        if(data.success) {
+                            window.billingAsset = data.billing_asset;
+                            window.billingPrec = data.billing_prec;
+                            
+                            $.each(data.contracts, function(k, v) {
+                               renderContract(v, thisAS);
+                            });
+                            
+                            thisAS.done();
+                            
+                            if(thisAS.offset == 0)
+                                $(document).trigger('renderingStage');
+                            
+                            if(data.contracts.length != 50)
+                                thisAS.noMoreData();
+                        }
+                        
+                        else {
+                            msgBoxRedirect(data.error);
+                            thisAS.done();
+                            thisAS.noMoreData();
+                        }
+                    })
+                    .fail(function (jqXHR, textStatus, errorThrown) {
+                        msgBoxNoConn(true);
+                        thisAS.done();
+                        thisAS.noMoreData();
+                    });
+                
+                    //---
+                    
+                },
+            true,
+            true
+        );
+    }
 });
