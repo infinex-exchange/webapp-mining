@@ -22,7 +22,8 @@
             <div class="jumbotron row m-0 px-4 py-5">
                 <div class="col-12">
                     <h1>Vayamos Mining</h1>
-                    <p>Access cryptocurrency mining profits without building your own infrastructure.</p>
+                    <p>Access cryptocurrency mining profits without building your own infrastructure.<br>
+                    Start mining in cloud!</p>
                 </div>
             </div>
             
