@@ -59,6 +59,44 @@ function renderContract(contract, ajaxScr) {
     var expectedProfit = expectedRevEquiv.minus(pricePaid);
     var expectedProfitPerc = expectedProfit.div(pricePaid).times(100);
     
+    var revenSeries = new Array();
+    var profitSeries = new Array();
+    
+    for(var month = 0; month <= window.plans[planid].months; month++) {
+        var dateNow = new Date();
+        var dateAt = new Date(purchaseDate);
+        dateAt.setMonth(dateAt.getMonth() + month);
+        
+        dateNow = dateNow.getTime();
+        dateAt = dateNow().getTime();
+        
+        var revenAt = null;
+        var profitAt = null;
+        
+        if(dateAt < dateNow) {
+            var multiplier = dateAt - purchaseDate.getTime();
+            var divider = dateNow - purchaseDate.getTime();
+             
+            var revenAt = currentRevEquiv.times(multiplier)
+                                         .div(divider);            
+        }
+        
+        else {
+            //
+        }
+        
+        revenSeries.push({
+            x: dateAt,
+            y: revenAt.toFixed(window.billingPrec)
+        });
+        
+        profitSeries.push({
+            x: dateAt,
+            y: profitAt.toFixed(window.billingPrec)
+        });
+    }
+    
+    
     // dailyRevDetailed
     dailyRevEquiv = dailyRevEquiv.toFixed(window.billingPrec);
     // expectedRevDetailed
@@ -201,7 +239,16 @@ function renderContract(contract, ajaxScr) {
 	    </div>
 	`);
     
-    var series = [];
+    var series = [
+        {
+	        name: 'Revenue',
+            data: revenSeries
+	    },
+        {
+            name: 'Profit',
+            data: profitSeries
+        }
+    ];
     
     var options = {
         series: series,
