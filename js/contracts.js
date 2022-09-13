@@ -202,29 +202,32 @@ $(document).ready(function() {
 $(document).on('authChecked', function() {
     if(window.loggedIn) {
         $.ajax({
-        url: config.apiUrl + '/mining/plans',
-        type: 'POST',
-        contentType: "application/json",
-        dataType: "json",
-    })
-    .retry(config.retry)
-    .done(function (data) {
-        if(data.success) {
-            window.plans = data.plans;
-            window.billingAsset = data.billing_asset;
-            window.billingPrec = data.billing_prec;
+            url: config.apiUrl + '/mining/plans',
+            type: 'POST',
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                window.plans = data.plans;
+                window.billingAsset = data.billing_asset;
+                window.billingPrec = data.billing_prec;
+                
+                $(document).trigger('renderingStage plansFetched');
+            }
             
-            $(document).trigger('renderingStage');
-        }
-        
-        else {
-            msgBoxRedirect(data.error);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(true);
-    });
-    
+            else {
+                msgBoxRedirect(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(true);
+        });
+    }
+});
+
+$(document).on('plansFetched', function() {
         window.contractsAS = new AjaxScroll(
             $('#contracts-data'),
             $('#contracts-data-preloader'),
@@ -281,5 +284,4 @@ $(document).on('authChecked', function() {
             true,
             true
         );
-    }
 });
