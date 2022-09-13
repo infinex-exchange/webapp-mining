@@ -2,7 +2,7 @@ function renderPayoutItem(data) {
     var cTime = new Date(data.time * 1000).toLocaleString();
     
     return `
-        <div class="row p-2">
+        <div class="row p-2 hoverable">
             <div class="col-12 col-lg-3">
                 ${cTime}
             </div>
