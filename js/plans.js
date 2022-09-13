@@ -342,7 +342,7 @@ function renderPlan(planid, data) {
     window.charts[planid] = new ApexCharts(item.find('.forecast-chart')[0], options);
     window.charts[planid].render();
     
-    if(data.dataavbl_units > data.min_ord_units) {
+    if(data.avbl_units > data.min_ord_units) {
         item.find('.sold-out-wrapper').addClass('d-none');
     } else {
         item.find('.buy-wrapper').addClass('d-none');
