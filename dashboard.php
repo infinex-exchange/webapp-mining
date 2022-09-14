@@ -3,7 +3,6 @@
     <head>
         <?php include('../../templates/head.php'); ?>
         <?php include('../../imports/bignumber.html'); ?>
-        <?php include('../../imports/apexcharts.html'); ?>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <title>Dashboard | Vayamos Mining</title>
     </head>
