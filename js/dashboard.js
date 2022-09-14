@@ -104,24 +104,24 @@ function renderDashboardPlan(planid, item) {
                                         </h4>
                                     </div>
                                     
-                                    <div class="col-4 col-lg-2 pb-4 order-4 order-lg-7">
+                                    <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-4 order-lg-7">
                                         Active
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-5 order-lg-8">
+                                    <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-5 order-lg-8">
                                         ${units} ${unitName}
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-6 order-lg-9">
+                                    <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-6 order-lg-9">
                                         ${pricePaid} ${window.billingAsset}
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-10">
+                                    <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-10">
                                         ${dailyRevDetailed}
                                         <i class="small">(${dailyRevEquiv} ${window.billingAsset})</i>
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-11">
+                                    <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-11">
                                         ${currentRevDetailed}
                                         <i class="small">(${currentRevEquiv} ${window.billingAsset})</i>
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-12">
+                                    <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-12">
                                         ${currentProfit} ${window.billingAsset}
                                         <br>
                                         <i class="small">(${currentProfitPerc}%)</i>
