@@ -111,9 +111,6 @@ function renderDashboardPlan(planid, item) {
                                         ${units} ${unitName}
                                     </div>
                                     <div class="col-4 col-lg-2 pb-4">
-                                        ${units} ${unitName}
-                                    </div>
-                                     <div class="col-4 col-lg-2 pb-4">
                                         ${pricePaid} ${window.billingAsset}
                                     </div>
                                     <div class="col-4 col-lg-2 pb-4">
