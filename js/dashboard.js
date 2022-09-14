@@ -16,13 +16,13 @@ function renderDashboardPlan(planid, item) {
     if(item.active) {
         statusHtml = `
             <i class="fa-solid fa-circle text-green"></i>
-            <strong>Active</strong>
+            Active
         `;
     }
     else {
         statusHtml = `
             <i class="fa-solid fa-circle text-red"></i>
-            <strong>Inactive</strong>
+            Inactive
         `;
     }
     
