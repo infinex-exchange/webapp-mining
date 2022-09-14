@@ -12,6 +12,20 @@ function renderDashboardPlan(planid, item) {
         `;
     });
     
+    var statusHtml = null;
+    if(item.active) {
+        statusHtml = `
+            <i class="fa-solid fa-circle text-green"></i>
+            <strong>Active</strong>
+        `;
+    }
+    else {
+        statusHtml = `
+            <i class="fa-solid fa-circle text-red"></i>
+            <strong>Not active</strong>
+        `;
+    }
+    
     var units = item.units;
     var unitName = plan.unit_name;
     var pricePaid = new BigNumber(item.sum_payments);
@@ -107,7 +121,7 @@ function renderDashboardPlan(planid, item) {
                                     </div>
                                     
                                     <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-4 order-lg-7">
-                                        Active
+                                        ${statusHtml}
                                     </div>
                                     <div class="col-4 col-lg-2 pb-4 pb-lg-0 order-5 order-lg-8">
                                         ${units} ${unitName}
