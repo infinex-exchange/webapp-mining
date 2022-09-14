@@ -23,7 +23,7 @@
                 <div class="col-12">
                     <h1>Vayamos Mining</h1>
                     <p>Access cryptocurrency mining profits without building your own infrastructure.<br>
-                    Start mining in cloud!</p>
+                    Start mining in cloud with everyday payouts!</p>
                 </div>
             </div>
             
