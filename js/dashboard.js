@@ -104,27 +104,27 @@ function renderDashboardPlan(planid, item) {
                                         </h4>
                                     </div>
                                     
-                                    <div class="col-4 pb-4">
+                                    <div class="col-4 col-lg-2 pb-4">
                                         Active
                                     </div>
-                                    <div class="col-4 pb-4">
+                                    <div class="col-4 col-lg-2 pb-4">
                                         ${units} ${unitName}
                                     </div>
-                                    <div class="col-4 pb-4">
+                                    <div class="col-4 col-lg-2 pb-4">
                                         ${units} ${unitName}
                                     </div>
-                                     <div class="col-4 pb-4">
+                                     <div class="col-4 col-lg-2 pb-4">
                                         ${pricePaid} ${window.billingAsset}
                                     </div>
-                                    <div class="col-4 pb-4">
+                                    <div class="col-4 col-lg-2 pb-4">
                                         ${dailyRevDetailed}
                                         <i class="small">(${dailyRevEquiv} ${window.billingAsset})</i>
                                     </div>
-                                    <div class="col-4 pb-4">
+                                    <div class="col-4 col-lg-2 pb-4">
                                         ${currentRevDetailed}
                                         <i class="small">(${currentRevEquiv} ${window.billingAsset})</i>
                                     </div>
-                                    <div class="col-4 pb-4">
+                                    <div class="col-4 col-lg-2 pb-4">
                                         ${currentProfit} ${window.billingAsset}
                                         <br>
                                         <i class="small">(${currentProfitPerc}%)</i>
