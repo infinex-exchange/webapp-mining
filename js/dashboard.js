@@ -58,7 +58,7 @@ function renderDashboardPlan(planid, item) {
         currentProfitPerc = currentProfitPerc.toFixed(2);
     
     $('#dashboard-data').append(`
-	    <div class="col-12 contract-item" data-contractid="${contract.contractid}">
+	    <div class="col-12 dashboard-item" data-planid="${planid}">
 	        <div class="p-2 p-lg-4 ui-card-light rounded">
 	            <div class="row">
 	                <div class="col-12 pt-2 pb-4">
