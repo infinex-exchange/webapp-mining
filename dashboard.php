@@ -2,6 +2,8 @@
 <html lang="en">
     <head>
         <?php include('../../templates/head.php'); ?>
+        <?php include('../../imports/bignumber.html'); ?>
+        <?php include('../../imports/apexcharts.html'); ?>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <title>Dashboard | Vayamos Mining</title>
     </head>
@@ -25,19 +27,7 @@
                 <h3>Dashboard</h3>
             </div>
             
-            <div class="row p-2 d-none d-lg-flex secondary">
-                <div class="col-4">
-                <h5>Name</h5>
-                </div>
-                <div class="col-5">
-                <h5>API key</h5>
-                </div>
-                <div class="col-3">
-                <h5>Options</h5>
-                </div>
-            </div>
-            
-            <div id="api-keys-data">
+            <div id="dashboard-data">
             </div>
         
         <!-- / Main column -->
