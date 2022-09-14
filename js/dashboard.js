@@ -42,7 +42,9 @@ function renderDashboardPlan(planid, item) {
     });
     
     var currentProfit = currentRevEquiv.minus(pricePaid);
-    var currentProfitPerc = currentProfit.div(pricePaid).times(100);
+    var currentProfitPerc = new BigNumber(0);
+    if(pricePaid.gt(0))
+        currentProfitPerc = currentProfit.div(pricePaid).times(100);
     
     
     // dailyRevDetailed
