@@ -88,32 +88,32 @@ function renderDashboardPlan(planid, item) {
                                             Purchases sum
                                         </h4>
                                     </div>
-                                    <div class="col-4 col-lg-2 order-4">
+                                    <div class="col-4 col-lg-2 order-7 order-lg-4">
                                         <h4 class="secondary">
                                             Daily revenue
                                         </h4>
                                     </div>
-                                    <div class="col-4 col-lg-2 order-9 order-lg-5">
+                                    <div class="col-4 col-lg-2 order-8 order-lg-5">
                                         <h4 class="secondary">
                                             Current revenue
                                         </h4>
                                     </div>
-                                    <div class="col-4 col-lg-2 order-10 order-lg-6">
+                                    <div class="col-4 col-lg-2 order-9 order-lg-6">
                                         <h4 class="secondary">
                                             Current profit
                                         </h4>
                                     </div>
                                     
-                                    <div class="col-4 col-lg-2 pb-4 order-5 order-lg-7">
+                                    <div class="col-4 col-lg-2 pb-4 order-4 order-lg-7">
                                         Active
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-6 order-lg-8">
+                                    <div class="col-4 col-lg-2 pb-4 order-5 order-lg-8">
                                         ${units} ${unitName}
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-7 order-lg-9">
+                                    <div class="col-4 col-lg-2 pb-4 order-6 order-lg-9">
                                         ${pricePaid} ${window.billingAsset}
                                     </div>
-                                    <div class="col-4 col-lg-2 pb-4 order-8 order-lg-10">
+                                    <div class="col-4 col-lg-2 pb-4 order-10">
                                         ${dailyRevDetailed}
                                         <i class="small">(${dailyRevEquiv} ${window.billingAsset})</i>
                                     </div>
