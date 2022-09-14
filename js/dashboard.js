@@ -22,7 +22,7 @@ function renderDashboardPlan(planid, item) {
     else {
         statusHtml = `
             <i class="fa-solid fa-circle text-red"></i>
-            <strong>Not active</strong>
+            <strong>Inactive</strong>
         `;
     }
     
