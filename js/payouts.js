@@ -3,17 +3,27 @@ function renderPayoutItem(data) {
     
     return `
         <div class="row p-2 hoverable">
-            <div class="col-12 col-lg-3">
+            <div class="col-3 d-none d-lg-block">
                 ${cTime}
             </div>
-            <div class="col-12 col-lg-3">
+            <div class="col-3 d-none d-lg-block">
                 ${data.assetid}
             </div>
-            <div class="col-12 col-lg-3 text-end">
+            <div class="col-3 d-none d-lg-block text-end">
                 ${data.amount}
             </div>
-            <div class="col-12 col-lg-3 text-end">
+            <div class="col-3 d-none d-lg-block text-end">
                 ${data.units_owned} ${data.unit_name}
+            </div>
+            <div class="col-6 d-lg-none">
+                <small class="secondary">
+                    ${data.cTime}
+                </small>
+                <br>
+                ${data.units_owned} ${data.unit_name}
+            </div>
+            <div class="col-6 d-lg-none text-end">
+                <strong>+${data.amount} ${data.assetid}</strong>
             </div>
         </div>
     `;
