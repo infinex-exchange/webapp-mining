@@ -17,7 +17,7 @@ function renderPayoutItem(data) {
             </div>
             <div class="col-6 d-lg-none">
                 <small class="secondary">
-                    ${data.cTime}
+                    ${cTime}
                 </small>
                 <br>
                 ${data.units_owned} ${data.unit_name}
