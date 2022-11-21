@@ -60,8 +60,8 @@
                 </div>
             </div>
             
-            <div class="row m-0 pb-5">
-	            <div class="col-12 col-lg-9 my-auto">
+            <div class="row m-0">
+	            <div class="col-12 col-lg-9 pb-5 my-auto">
                     <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
                             <i class="fa-solid fa-chart-line fa-2x"></i>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 
-                <div class="col-12 col-lg-3 my-auto">
+                <div class="col-8 col-lg-3 pb-5 m-auto">
 	                <img src="/mining/img/cloud_mining.png" class="img-fluid">
                 </div>
             </div>
