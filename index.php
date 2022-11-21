@@ -61,7 +61,7 @@
             </div>
             
             <div class="row m-0 pb-5">
-	            <div class="col-12">
+	            <div class="col-12 col-lg-9 my-auto">
                     <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
                             <i class="fa-solid fa-chart-line fa-2x"></i>
@@ -72,6 +72,10 @@
                             Mining profitability varies all the time. Do your own research before purchasing the service.
                         </div>
                     </div>
+                </div>
+                
+                <div class="col-12 col-lg-3 my-auto">
+	                <img src="/mining/img/cloud_mining.png" class="img-fluid">
                 </div>
             </div>
         
