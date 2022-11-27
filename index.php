@@ -5,7 +5,7 @@
         <?php include('../../imports/bignumber.html'); ?>
         <?php include('../../imports/apexcharts.html'); ?>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
-        <title>Vayamos Mining</title>
+        <title>Infinex Mining</title>
     </head>
     <body class="body-background">
     
@@ -21,7 +21,7 @@
         
             <div class="jumbotron row m-0 px-4 py-5">
                 <div class="col-12">
-                    <h1>Vayamos Mining</h1>
+                    <h1>Infinex Mining</h1>
                     <strong>Access cryptocurrency mining profits without building your own infrastructure.<br>
                     Start mining in cloud with everyday payouts!</strong>
                 </div>
@@ -92,7 +92,7 @@
                     <div class="modal-body">
                         Are you sure you want to purchase the Mining Cloud contract?
                         <br>
-                        The amount of <span id="mcb-price"></span> will be charged from your Vayamos account.
+                        The amount of <span id="mcb-price"></span> will be charged from your Infinex account.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Close</button>
