@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php include('../../templates/head.php'); ?>
-        <?php include('../../imports/bignumber.html'); ?>
-        <?php include('../../imports/apexcharts.html'); ?>
+        <?php include('../../inc/head.php'); ?>
+        <?php include('../../vendor/bignumber.html'); ?>
+        <?php include('../../vendor/apexcharts.html'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../../js/ajax_scroll.js'); ?>"></script>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <title>My contracts | Infinex Mining</title>
@@ -11,10 +11,9 @@
     <body>
     
         <!-- Preloader -->
-        <?php include('../../templates/preloader.html'); ?>
+        <?php include('../../inc/body.php'); ?>
         
         <!-- Navbar -->
-        <?php include('../../templates/navbar.php'); ?>
         <?php include(__DIR__.'/templates/navbar.php'); ?>
         
         <!-- Root container -->
@@ -40,7 +39,6 @@
         
         <script src="/mining/js/contracts.js?<?php echo filemtime(__DIR__.'/js/contracts.js'); ?>"></script>
         
-        <?php include('../../templates/modals.php'); ?>
         <?php include(__DIR__.'/templates/mobile_nav.php'); ?>
     
     </body>

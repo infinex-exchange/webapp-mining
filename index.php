@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php include('../../templates/head.php'); ?>
-        <?php include('../../imports/bignumber.html'); ?>
-        <?php include('../../imports/apexcharts.html'); ?>
+        <?php include('../../inc/head.php'); ?>
+        <?php include('../../vendor/bignumber.html'); ?>
+        <?php include('../../vendor/apexcharts.html'); ?>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <title>Infinex Mining</title>
     </head>
     <body class="body-background">
     
         <!-- Preloader -->
-        <?php include('../../templates/preloader.html'); ?>
+        <?php include('../../inc/body.php'); ?>
         
         <!-- Navbar -->
-        <?php include('../../templates/navbar.php'); ?>
         <?php include(__DIR__.'/templates/navbar.php'); ?>
         
         <!-- Root container -->
@@ -102,11 +101,10 @@
             </div>
         </div>
         
-        <?php include('../../templates/modals.php'); ?>
         <script src="/mining/js/plans.js?<?php echo filemtime(__DIR__.'/js/plans.js'); ?>"></script>
         
         <!-- Footer -->
-        <?php include('../../templates/footer.html'); ?>
+        <?php include('../../inc/footer.php'); ?>
         <?php include(__DIR__.'/templates/mobile_nav.php'); ?>
     
     </body>

@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php include('../../templates/head.php'); ?>
-        <?php include('../../imports/bignumber.html'); ?>
+        <?php include('../../inc/head.php'); ?>
+        <?php include('../../vendor/bignumber.html'); ?>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <title>Dashboard | Infinex Mining</title>
     </head>
     <body>
     
         <!-- Preloader -->
-        <?php include('../../templates/preloader.html'); ?>
+        <?php include('../../inc/body.php'); ?>
         
         <!-- Navbar -->
-        <?php include('../../templates/navbar.php'); ?>
         <?php include(__DIR__.'/templates/navbar.php'); ?>
         
         <!-- Root container -->
@@ -38,7 +37,6 @@
         
         <script src="/mining/js/dashboard.js?<?php echo filemtime(__DIR__.'/js/dashboard.js'); ?>"></script>
         
-        <?php include('../../templates/modals.php'); ?>
         <?php include(__DIR__.'/templates/mobile_nav.php'); ?>
     
     </body>
