@@ -1,5 +1,6 @@
 window.paymentAsset = '';
 window.referenceAsset = '';
+window.charts = {};
 window.renderingStagesTarget = 1;
 
 function renderPlan(data) {
@@ -138,12 +139,10 @@ function renderPlan(data) {
 	`;
 }
 
-function afterAdd() {
-}
-
-/*function afterAdd() {
+function afterAdd(elem) {
+    let data = elem.data();
     
-    var options = {
+    let options = {
         series: [],
         chart: {
             height: 300,
@@ -165,7 +164,7 @@ function afterAdd() {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value + ' ' + window.billingAsset;
+                    return value + ' ' + window.referenceAsset;
                 }
             }
         },
@@ -179,46 +178,16 @@ function afterAdd() {
 	        mode: 'dark'
 	    }
     };
-    
-    var item = $('.plan-item[data-planid="' + planid + '"]');
 
-    window.charts[planid] = new ApexCharts(item.find('.forecast-chart')[0], options);
-    window.charts[planid].render();
+    window.charts[data.planid] = new ApexCharts(elem.find('.forecast-chart')[0], options);
+    window.charts[data.planid].render();
     
-    item.find('.form-range').trigger('input');
-}
-
-function buyMining(planid) {
-    var item = $('.plan-item[data-planid="' + planid + '"]');
-    var units = parseInt(item.find('.form-range').val());
-    
-    $.ajax({
-        url: config.apiUrl + '/mining/plans/buy',
-        type: 'POST',
-        data: JSON.stringify({
-            api_key: window.apiKey,
-            planid: planid,
-            units: units
-        }),
-        contentType: "application/json",
-        dataType: "json"
-    })
-    .retry(config.retry)
-    .done(function (data) {
-        if(data.success) {
-            window.location.replace('/mining/dashboard');
-        }
-        
-        else {
-            msgBox(data.error);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(false);
-    });
+    recalcPlan(data.planid);
 }
 
 function recalcPlan(planid) {
+}
+/*
     var item = $('.plan-item[data-planid="' + planid + '"]');
     
     // Units
@@ -352,6 +321,36 @@ function recalcPlan(planid) {
     item.find('.roi').html(roi + '%');
     
     item.find('.return-after').html(returnAfter + ' days');
+}*/
+
+/*function buyMining(planid) {
+    var item = $('.plan-item[data-planid="' + planid + '"]');
+    var units = parseInt(item.find('.form-range').val());
+    
+    $.ajax({
+        url: config.apiUrl + '/mining/plans/buy',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey,
+            planid: planid,
+            units: units
+        }),
+        contentType: "application/json",
+        dataType: "json"
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            window.location.replace('/mining/dashboard');
+        }
+        
+        else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
+    });
 }*/
 
 $(document).on('authChecked', function() {
