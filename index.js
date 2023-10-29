@@ -337,8 +337,9 @@ function confirmBuy(planid) {
         function() {
             api(
                 'POST',
-                '/mining/v2/plans/' + planid,
+                '/mining/v2/contracts',
                 {
+                    planid: planid,
                     units: units
                 }
             ).then(function() {
