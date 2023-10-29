@@ -138,6 +138,9 @@ function renderPlan(data) {
 	`;
 }
 
+function afterAdd() {
+}
+
 /*function afterAdd() {
     
     var options = {
