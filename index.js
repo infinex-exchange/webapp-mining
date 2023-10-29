@@ -196,7 +196,7 @@ function recalcPlan(planid) {
     // Regular price
     let priceRegular = new BigNumber(data.unitPrice);
     priceRegular = priceRegular.times(units);
-    item.find('.price-regular').html(priceRegular.toString() + ' ' + window.paymentAsset);
+    elem.find('.price-regular').html(priceRegular.toString() + ' ' + window.paymentAsset);
 }
 
 /*
