@@ -197,33 +197,31 @@ function recalcPlan(planid) {
     let priceRegular = new BigNumber(data.unitPrice);
     priceRegular = priceRegular.times(units);
     elem.find('.price-regular').html(priceRegular.toString() + ' ' + window.paymentAsset);
-}
 
-/*
-    
     // Final price
-    var priceFinal = priceRegular;
-    if(window.plans[planid].discount_perc_every != null) {
-        var discountTotalPerc = new BigNumber(units);
-        discountTotalPerc = discountTotalPerc.idiv(window.plans[planid].discount_perc_every)
-                                             .dp(0);
+    let priceFinal = priceRegular;
+    if(data.discountPercEvery != null) {
+        let discountTotalPerc = new BigNumber(units);
+        discountTotalPerc = discountTotalPerc.div(data.discountPercEvery)
+                                             .dp(0, BigNumber.ROUND_DOWN);
         
-        if(typeof(window.plans[planid].discount_max) !== 'undefined' && discountTotalPerc.gt(window.plans[planid].discount_max))
-            discountTotalPerc = new BigNumber(window.plans[planid].discount_max);
+        if(data.discountMax && discountTotalPerc.gt(data.discountMax))
+            discountTotalPerc = new BigNumber(data.discountMax);
         
-        item.find('.discount-perc').html('-' + discountTotalPerc.toFixed(0) + '%');
+        elem.find('.discount-perc').html('-' + discountTotalPerc.toFixed(0) + '%');
         
-        var discountFactor = new BigNumber(100);
+        let discountFactor = new BigNumber(100);
         discountFactor = discountFactor.minus(discountTotalPerc).div(100);
-        priceFinal = priceRegular.times(discountFactor).dp(window.billingPrec);
+        priceFinal = priceRegular.times(discountFactor);//.dp(window.billingPrec);
     }
-    item.find('.price-final').html(priceFinal.toFixed(window.billingPrec) + ' ' + window.billingAsset);
+    elem.find('.price-final').html(priceFinal.toString() + ' ' + window.paymentAsset);
     
     if(priceFinal.eq(priceRegular))
-        item.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
+        elem.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
     else
-        item.find('.discount-perc-wrapper, .price-regular').removeClass('d-none');
-    
+        elem.find('.discount-perc-wrapper, .price-regular').removeClass('d-none');
+}
+/*
     // Forecast
     var dailyMasterTotal = new BigNumber(0);
     var dailyNative = new Object();
