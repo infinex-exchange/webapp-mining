@@ -215,6 +215,7 @@ function recalcPlan(planid) {
         priceFinal = priceRegular.times(discountFactor).dp(window.billingPrec);
     }
     elem.find('.price-final').html(priceFinal.toString() + ' ' + window.billingAsset);
+    console.log(priceFinal);
     
     if(priceFinal.eq(priceRegular))
         elem.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
