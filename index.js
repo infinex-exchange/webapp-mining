@@ -303,6 +303,7 @@ function recalcPlan(planid) {
     let revenDetailed = ''; // All assets total revenue string <br> separated
     
     for(const i in dailyNative) {
+        console.log(dailyNative[i]);
         dailyDetailed += prettyBalance(dailyNative[i], data.assets[i].defaultPrec)
                       +  ' ' + data.assets[i].symbol + '<br>';
         revenDetailed += prettyBalance(dailyNative[i].times(days), data.assets[i].defaultPrec)
