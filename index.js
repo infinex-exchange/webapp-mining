@@ -186,13 +186,15 @@ function afterAdd(elem) {
 }
 
 function recalcPlan(planid) {
-}
-/*
-    var item = $('.plan-item[data-planid="' + planid + '"]');
+    let elem = window.scrPlans.get(planid);
+    let data = elem.data();
     
     // Units
-    var units = item.find('.form-range').val();
-    item.find('.units').html(units + ' ' + window.plans[planid].unit_name + 's');
+    let units = elem.find('.form-range').val();
+    elem.find('.units').html(units + ' ' + data.unitName + 's');
+}
+
+/*
     
     // Regular price
     var priceRegular = new BigNumber(window.plans[planid].unit_price);
