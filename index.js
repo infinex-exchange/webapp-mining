@@ -225,7 +225,7 @@ function recalcPlan(planid) {
     let dailyRefSum = new BigNumber(0); // Sum of all assets daily revenue in ref coin
     let dailyNative = {}; // Array of all assets daily revenue in this asset
     
-    for(const i in data.assets)
+    for(const i in data.assets) {
         // Calculate in asset daily revenue for given units
         let dailyNativeThis = new BigNumber(data.assets[i].avgUnitRevenue);
         dailyNativeThis = dailyNativeThis.times(units);
@@ -237,7 +237,7 @@ function recalcPlan(planid) {
         dailyRefSum = dailyRefThis.plus(
             dailyNativeThis.times(data.assets[i].avgPrice)
         );
-    });
+    }
     
     let revenSeries = new Array(); // Revenue chart series
     let profitSeries = new Array(); // Profit chart series
