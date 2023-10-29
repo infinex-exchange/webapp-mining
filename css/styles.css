@@ -22,21 +22,4 @@
 
 .jumbotron {
     background-image: url("/mining/img/mining_jumbotron.jpg");
-    background-size: cover;
-    background-position: center;
-}
-
-/* Navbar */
-
-.navbar-mining {
-    background-color: var(--color-input) !important;
-    z-index: 999 !important;
-}
-
-.navbar-mobile .nav-separ {
-    display: none !important;
-}
-
-.navbar-mining br {
-    display: none !important;
 }
