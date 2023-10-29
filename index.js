@@ -263,12 +263,12 @@ function recalcPlan(planid) {
         
         revenSeries.push({
             x: dateFuture.getTime(),
-            y: prettyBalance(lastReven, window.billingPrec)
+            y: lastReven.toFixed(window.billingPrec)
         });
         
         profitSeries.push({
             x: dateFuture.getTime(),
-            y: prettyBalance(lastProfit, window.billingPrec)
+            y: lastProfit.toFixed(window.billingPrec)
         });
     }
     
