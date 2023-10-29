@@ -1,5 +1,5 @@
-window.paymentAsset = '';
-window.refAsset = '';
+window.billingAsset = '';
+window.billingPrec = 0;
 window.charts = {};
 window.renderingStagesTarget = 1;
 
@@ -164,7 +164,7 @@ function afterAdd(elem) {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value + ' ' + window.refAsset;
+                    return value + ' ' + window.billingAsset;
                 }
             }
         },
@@ -196,7 +196,7 @@ function recalcPlan(planid) {
     // Regular price
     let priceRegular = new BigNumber(data.unitPrice);
     priceRegular = priceRegular.times(units);
-    elem.find('.price-regular').html(priceRegular.toString() + ' ' + window.paymentAsset);
+    elem.find('.price-regular').html(priceRegular.toString() + ' ' + window.billingAsset);
 
     // Final price
     let priceFinal = priceRegular;
@@ -212,46 +212,49 @@ function recalcPlan(planid) {
         
         let discountFactor = new BigNumber(100);
         discountFactor = discountFactor.minus(discountTotalPerc).div(100);
-        priceFinal = priceRegular.times(discountFactor);//.dp(window.billingPrec);
+        priceFinal = priceRegular.times(discountFactor).dp(window.billingPrec);
     }
-    elem.find('.price-final').html(priceFinal.toString() + ' ' + window.paymentAsset);
+    elem.find('.price-final').html(priceFinal.toString() + ' ' + window.billingAsset);
     
     if(priceFinal.eq(priceRegular))
         elem.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
     else
         elem.find('.discount-perc-wrapper, .price-regular').removeClass('d-none');
-}
-/*
+
     // Forecast
-    var dailyMasterTotal = new BigNumber(0);
-    var dailyNative = new Object();
+    let dailyRefSum = new BigNumber(0); // Sum of all assets daily revenue in ref coin
+    let dailyNative = {}; // Array of all assets daily revenue in this asset
     
-    $.each(window.plans[planid].assets, function(k, v) {
-        var dailyNativeThis = new BigNumber(v.unit_avg_revenue);
+    for(const i in data.assets)
+        // Calculate in asset daily revenue for given units
+        let dailyNativeThis = new BigNumber(data.assets[i].avgUnitRevenue);
         dailyNativeThis = dailyNativeThis.times(units);
-        dailyNative[k] = dailyNativeThis;
         
-        var dailyMasterThis = dailyNativeThis.times(v.asset_price_avg);
-        dailyMasterTotal = dailyMasterTotal.plus(dailyMasterThis);
+        // Store in array
+        dailyNative[i] = dailyNativeThis;
+        
+        // Calculate refcoin equivalent and add to sum
+        dailyRefSum = dailyRefThis.plus(
+            dailyNativeThis.times(data.assets[i].avgPrice)
+        );
     });
     
-    var revenSeries = new Array();
-    var profitSeries = new Array();
-    var days = 0;
-    var lastReven = null;
-    var lastProfit = null;
-    var returnAfter = 0;
-    var returnDate = null;
+    let revenSeries = new Array(); // Revenue chart series
+    let profitSeries = new Array(); // Profit chart series
+    let days = 0; // Days from purchase, only last value is needed
+    let lastReven = null; // Total refcoin revenue, only value for last day is further needed
+    let lastProfit = null; // Total refcoin profit, only value for last day is further needed
+    let returnAfter = 0; // Value of days when profit > 0
+    let returnDate = null; // returnAfter converted to date when profit > 0
     
-    for(var month = 0; month <= window.plans[planid].months; month++) {
-        var dateNow = new Date();
-        var dateFuture = new Date();
+    for(let month = 0; month <= data.months; month++) {
+        let dateNow = new Date();
+        let dateFuture = new Date();
         dateFuture.setMonth(dateFuture.getMonth() + month);
         days = Math.round((dateFuture.getTime() - dateNow.getTime()) / (1000 * 3600 * 24));
         
-        lastReven = dailyMasterTotal.times(days);
-        lastProfit = dailyMasterTotal.times(days)
-                                     .minus(priceFinal);
+        lastReven = dailyRefSum.times(days);
+        lastProfit = lastReven.minus(priceFinal);
         
         if(returnAfter == 0 && lastProfit.gt(0)) {
             returnAfter = days;
@@ -260,16 +263,16 @@ function recalcPlan(planid) {
         
         revenSeries.push({
             x: dateFuture.getTime(),
-            y: lastReven.toFixed(window.billingPrec)
+            y: prettyBalance(lastReven, window.billingPrec)
         });
         
         profitSeries.push({
             x: dateFuture.getTime(),
-            y: lastProfit.toFixed(window.billingPrec)
+            y: prettyBalance(lastProfit, window.billingPrec)
         });
     }
     
-    window.charts[planid].updateSeries([
+    window.charts[data.planid].updateSeries([
 	    {
 	        name: 'Revenue',
             data: revenSeries
@@ -280,9 +283,9 @@ function recalcPlan(planid) {
         }
     ], true);
     
-    if(returnDate != null) {
-	    window.charts[planid].clearAnnotations();
-	    window.charts[planid].addXaxisAnnotation({
+    window.charts[data.planid].clearAnnotations();
+    if(returnDate != null)
+	    window.charts[data.planid].addXaxisAnnotation({
 	        x: returnDate,
 	        label: {
 	            show: true,
@@ -294,34 +297,34 @@ function recalcPlan(planid) {
 		        textAnchor: 'start'
 	        }
 	    });
-    }
     
     // Summary
+    let dailyDetailed = ''; // All assets daily revenue string <br> separated
+    let revenDetailed = ''; // All assets total revenue string <br> separated
     
-    var revenDetailed = '';
-    var dailyDetailed = '';
+    for(const i in dailyNative) {
+        dailyDetailed += prettyBalance(dailyNative[i], data.assets[i].defaultPrec)
+                      +  ' ' + data.assets[i].symbol + '<br>';
+        revenDetailed += prettyBalance(dailyNative[i].times(days), data.assets[i].defaultPrec)
+                      +  ' ' + data.assets[i].symbol + '<br>';
+    }
     
-    $.each(dailyNative, function(k, v) {
-        dailyDetailed += v.toFixed(window.plans[planid].assets[k].prec)
-                      + ' ' + k + '<br>';
-        
-        var totalRevenThis = v.times(days);
-        revenDetailed += totalRevenThis.toFixed(window.plans[planid].assets[k].prec)
-                      + ' ' + k + '<br>';
-    });
+    elem.find('.daily-revenue-detailed').html(dailyDetailed);
+    elem.find('.daily-revenue-equiv').html(
+        '(' + prettyBalance(dailyRefSum, window.billingPrec) + ' ' + window.billingAsset + ')'
+    );
+    elem.find('.total-revenue-detailed').html(revenDetailed);
+    elem.find('.total-revenue-equiv').html(
+        '(' + prettyBalance(lastReven, window.billingPrec) + ' ' + window.billingAsset + ')'
+    );
     
-    item.find('.time-period').html(window.plans[planid].months + ' months');
-    item.find('.daily-revenue-detailed').html(dailyDetailed);
-    item.find('.daily-revenue-equiv').html('(' + dailyMasterTotal.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')');
-    item.find('.total-revenue-detailed').html(revenDetailed);
-    item.find('.total-revenue-equiv').html('(' + lastReven.toFixed(window.billingPrec) + ' ' + window.billingAsset + ')');
-    item.find('.total-profit').html(lastProfit.toFixed(window.billingPrec) + ' ' + window.billingAsset);
+    elem.find('.total-profit').html(prettyBalance(lastProfit, window.billingPrec) + ' ' + window.billingAsset);
     
-    var roi = lastProfit.div(priceFinal).times(100).toFixed(2);
+    let roi = lastProfit.div(priceFinal).times(100).toFixed(2);
     item.find('.roi').html(roi + '%');
     
     item.find('.return-after').html(returnAfter + ' days');
-}*/
+}
 
 /*function buyMining(planid) {
     var item = $('.plan-item[data-planid="' + planid + '"]');
@@ -364,9 +367,9 @@ $(document).on('authChecked', function() {
         null,
         null,
         function(root, resp) {
-            window.paymentAsset = resp.paymentAsset;
-            window.refAsset = resp.refAsset;
-            $('.reference-asset').html(resp.refAsset);
+            window.billingAsset = resp.billingAsset;
+            window.billingPrec = resp.billingPrec;
+            $('.billing-asset').html(resp.billingAsset);
             $(document).trigger('renderingStage');
         }
     );
