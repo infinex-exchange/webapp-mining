@@ -192,14 +192,14 @@ function recalcPlan(planid) {
     // Units
     let units = elem.find('.form-range').val();
     elem.find('.units').html(units + ' ' + data.unitName + 's');
+    
+    // Regular price
+    let priceRegular = new BigNumber(data.unitPrice);
+    priceRegular = priceRegular.times(units);
+    item.find('.price-regular').html(priceRegular.toString() + ' ' + window.paymentAsset);
 }
 
 /*
-    
-    // Regular price
-    var priceRegular = new BigNumber(window.plans[planid].unit_price);
-    priceRegular = priceRegular.times(units).dp(window.billingPrec);
-    item.find('.price-regular').html(priceRegular.toFixed(window.billingPrec) + ' ' + window.billingAsset);
     
     // Final price
     var priceFinal = priceRegular;
