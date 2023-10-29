@@ -1,5 +1,5 @@
 window.paymentAsset = '';
-window.referenceAsset = '';
+window.refAsset = '';
 window.charts = {};
 window.renderingStagesTarget = 1;
 
@@ -164,7 +164,7 @@ function afterAdd(elem) {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value + ' ' + window.referenceAsset;
+                    return value + ' ' + window.refAsset;
                 }
             }
         },
@@ -365,8 +365,8 @@ $(document).on('authChecked', function() {
         null,
         function(root, resp) {
             window.paymentAsset = resp.paymentAsset;
-            window.referenceAsset = resp.referenceAsset;
-            $('.reference-asset').html(resp.referenceAsset);
+            window.refAsset = resp.refAsset;
+            $('.reference-asset').html(resp.refAsset);
             $(document).trigger('renderingStage');
         }
     );
