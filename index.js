@@ -326,35 +326,27 @@ function recalcPlan(planid) {
     elem.find('.return-after').html(returnAfter + ' days');
 }
 
-/*function buyMining(planid) {
-    var item = $('.plan-item[data-planid="' + planid + '"]');
-    var units = parseInt(item.find('.form-range').val());
+function buyMining(planid) {
+    let elem = window.scrPlans.get(planid);
+    let units = elem.find('.form-range').val();
     
-    $.ajax({
-        url: config.apiUrl + '/mining/plans/buy',
-        type: 'POST',
-        data: JSON.stringify({
-            api_key: window.apiKey,
-            planid: planid,
-            units: units
-        }),
-        contentType: "application/json",
-        dataType: "json"
-    })
-    .retry(config.retry)
-    .done(function (data) {
-        if(data.success) {
-            window.location.replace('/mining/dashboard');
+    yesNoPrompt(
+        'Are you sure you want to buy this mining service? The amount of ' + 
+        elem.find('.price-final').html() + 
+        ' will be charged from your Infinex wallet.',
+        function() {
+            api(
+                'POST',
+                '/mining/v2/plans/' + planid,
+                {
+                    units: units
+                }
+            ).then(function() {
+                window.location.replace('/mining/dashboard');
+            });
         }
-        
-        else {
-            msgBox(data.error);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(false);
-    });
-}*/
+    );
+}
 
 $(document).on('authChecked', function() {
     window.scrPlans = new InfiniteScrollOffsetPg(
