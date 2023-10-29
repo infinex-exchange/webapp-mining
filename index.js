@@ -17,8 +17,8 @@ function renderPlan(data) {
         </button>
     ` : `
         <div class="small border border-primary rounded p-2 text-center">
-                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> to buy
-            </div>
+            <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> to buy
+        </div>
     `;
     
     let buyClass = data.avblUnits > 0 ? '' : 'd-none';
