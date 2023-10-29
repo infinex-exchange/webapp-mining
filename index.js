@@ -30,10 +30,10 @@ function renderPlan(data) {
 	            <div class="row">
 	                <div class="col-12 pt-2 pb-4">
                         <div class="row">
-                            <div class="col-auto my-auto ms-auto">
+                            <div class="col-auto m-auto me-lg-2">
 		                        ${icons}
                             </div>
-                            <div class="col-auto my-auto me-auto">
+                            <div class="col-auto m-auto me-lg-auto">
                                 <h3 class="m-0">${data.name}</h3>
                             </div>
                         </div>
