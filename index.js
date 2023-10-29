@@ -9,7 +9,6 @@ function renderPlan(data) {
         icons += `
             <img width="24" height="24" src="${asset.iconUrl}">
         `;
-    }
     
     let submitHtml = window.loggedIn ? `
         <button class="btn btn-primary w-100" onClick="confirmBuy(${data.planid})">
