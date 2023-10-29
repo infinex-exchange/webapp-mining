@@ -321,9 +321,9 @@ function recalcPlan(planid) {
     elem.find('.total-profit').html(prettyBalance(lastProfit, window.billingPrec) + ' ' + window.billingAsset);
     
     let roi = lastProfit.div(priceFinal).times(100).toFixed(2);
-    item.find('.roi').html(roi + '%');
+    elem.find('.roi').html(roi + '%');
     
-    item.find('.return-after').html(returnAfter + ' days');
+    elem.find('.return-after').html(returnAfter + ' days');
 }
 
 /*function buyMining(planid) {
