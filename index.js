@@ -215,7 +215,6 @@ function recalcPlan(planid) {
         priceFinal = priceRegular.times(discountFactor).dp(window.billingPrec);
     }
     elem.find('.price-final').html(priceFinal.toString() + ' ' + window.billingAsset);
-    console.log(priceFinal);
     
     if(priceFinal.eq(priceRegular))
         elem.find('.discount-perc-wrapper, .price-regular').addClass('d-none');
@@ -235,7 +234,7 @@ function recalcPlan(planid) {
         dailyNative[i] = dailyNativeThis;
         
         // Calculate refcoin equivalent and add to sum
-        dailyRefSum = dailyRefThis.plus(
+        dailyRefSum = dailyRefSum.plus(
             dailyNativeThis.times(data.assets[i].avgPrice)
         );
     }
