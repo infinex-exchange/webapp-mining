@@ -326,7 +326,7 @@ function recalcPlan(planid) {
     elem.find('.return-after').html(returnAfter + ' days');
 }
 
-function buyMining(planid) {
+function confirmBuy(planid) {
     let elem = window.scrPlans.get(planid);
     let units = elem.find('.form-range').val();
     
