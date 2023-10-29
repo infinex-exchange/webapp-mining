@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php include('../../inc/head.php'); ?>
-        <?php include('../../vendor/bignumber.html'); ?>
-        <?php include('../../vendor/apexcharts.html'); ?>
+        <?php
+        include(__DIR__.'/../../inc/head.php');
+        include(__DIR__.'/../../vendor/apexcharts.html');
+        ?>
         <link rel="stylesheet" href="/mining/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <title>Infinex Mining</title>
     </head>
     <body class="body-background">
-    
-        <!-- Preloader -->
-        <?php include('../../inc/body.php'); ?>
+        <?php include(__DIR__.'/../../inc/body.php'); ?>
         
         <!-- Navbar -->
-        <?php include(__DIR__.'/templates/navbar.php'); ?>
+        <?php include(__DIR__.'/inc/navbar.php'); ?>
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 h-rest pt-2 p-0">
@@ -66,7 +65,7 @@
                             <i class="fa-solid fa-chart-line fa-2x"></i>
                         </div>
                         <div class="px-2">
-                            All <span class="billing-asset"></span> estimations are based on the average exchange rate for the last 14 days.<br>
+                            All <span class="reference-asset"></span> estimations are based on the average exchange rate for the last 14 days.<br>
                             All forecasts are based on the current mining profitability of the offered coins.<br>
                             Mining profitability varies all the time. Do your own research before purchasing the service.
                         </div>
@@ -81,31 +80,12 @@
         <!-- / Root container -->
         </div>
         
-        <div class="modal fade" tabindex="-1" role="dialog" id="modal-confirm-buy">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Confirm payment</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to purchase the Mining Cloud contract?
-                        <br>
-                        The amount of <span id="mcb-price"></span> will be charged from your Infinex account.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button id="mcb-buy" type="button" class="btn btn-primary">Buy</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <script src="/mining/js/plans.js?<?php echo filemtime(__DIR__.'/js/plans.js'); ?>"></script>
+        <script src="/mining/index.js?<?php echo filemtime(__DIR__.'/index.js'); ?>"></script>
         
         <!-- Footer -->
-        <?php include('../../inc/footer.php'); ?>
-        <?php include(__DIR__.'/templates/mobile_nav.php'); ?>
-    
+        <?php
+        include(__DIR__.'/../../inc/footer.php');
+        include(__DIR__.'/inc/mobile_nav.php');
+        ?>
     </body>
 </html>

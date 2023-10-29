@@ -9,7 +9,7 @@
     </ul>
     
     <ul class="navbar-nav mx-auto text-center">
-        <?php include(__DIR__.'/menu_inner.html'); ?>
+        <?php include(__DIR__.'/nav/menu_inner.html'); ?>
     </ul>
 </nav>
 
